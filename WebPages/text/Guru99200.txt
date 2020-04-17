@@ -1,0 +1,62 @@
+https://www.guru99.com//java-static-variable-methods.html
+Java Static Method, Variable and Block with Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java Static Method, Variable and Block with Example Details Last Updated: 09 April 2020 The static can be: Static Variables Static Methods Static Blocks Of Code. Let's look at static variables and static methods first. What is Static Variable in Java? Static variable in Java is variable which belongs to the class and initialized only once at the start of the execution. It is a variable which belongs to the class and not to object(instance ). Static variables are initialized only once, at the start of the execution. These variables will be initialized first, before the initialization of any instance variables. A single copy to be shared by all instances of the class A static variable can be accessed directly by the class name and doesn’t need any object Syntax : <class-name>.<variable-name> What is Static Method in Java? Static method in Java is a method which belongs to the class and not to the object. A static method can access only static data. It is a method which belongs to the class and not to the object(instance). A static method can access only static data. It cannot access non-static data (instance variables). A static method can call only other static methods and can not call a non-static method from it. A static method can be accessed directly by the class name and doesn’t need any object A static method cannot refer to "this" or "super" keywords in anyway Syntax : <class-name>.<method-name> Note: main method is static, since it must be accessible for an application to run, before any instantiation takes place. Lets learn the nuances of the static keywords by doing some excercises! Example: How to call static variables & methods Step 1) Copy the following code into a editor public class Demo{
+   public static void main(String args[]){
+     Student s1 = new Student();
+     s1.showData();
+     Student s2 = new Student();
+     s2.showData();
+     //Student.b++;
+     //s1.showData();
+  }
+}
+
+class Student {
+int a; //initialized to zero
+static int b; //initialized to zero only when class is loaded not for each object created.
+
+  Student(){
+   //Constructor incrementing static variable b
+   b++;
+  }
+
+   public void showData(){
+      System.out.println("Value of a = "+a);
+      System.out.println("Value of b = "+b);
+   }
+//public static void increment(){
+//a++;
+//}
+
+} Step 2) Save & Compile the code. Run the code as, java Demo. Step 3) Expected output show below Following diagram shows, how reference variables & objects are created and static variables are accessed by the different instances. Step 4) It is possible to access a static variable from outside the class using the syntax ClassName.Variable_Name. Uncomment line # 7 & 8 . Save , Compile & Run . Observe the output. 
+Value of a = 0
+Value of b = 1
+Value of a = 0
+Value of b = 2
+Value of a = 0
+Value of b = 3
+ Step 5) Uncomment line 25,26 & 27 . Save , Compile & Run. 
+	 error: non-static variable a cannot be referenced from a static context a++; 
+	 Step 6) Error = ? This is because it is not possible to access instance variable "a" from java static class method "increment".   What is Static Block in Java? The static block is a block of statement inside a Java class that will be executed when a class is first loaded into the JVM. A static block helps to initialize the static data members, just like constructors help to initialize instance members. class Test{
+ static {
+ //Code goes here
+ }
+}
+ Following program is the example of java static block. Example: How to access static block 
+public class Demo {
+ static int a;
+ static int b;
+ static {
+    a = 10;
+    b = 20;
+ }
+ public static void main(String args[]) {
+
+  System.out.println("Value of a = " + a);
+  System.out.println("Value of b = " + b);
+
+ 	}
+}
+	 you will get following output of the program. 
+Value of a = 10
+Value of b = 20
+   Prev Report a Bug Next YOU MIGHT LIKE: JavaScript JavaScript Tutorial for Beginners PDF JavaScript is an open source & most popular client-side scripting language supported by all... Read more Java Tutorials String endsWith() Method in Java with Example What is String "endsWith" Method? The Java endsWith method is used to check whether the string is... Read more Java Tutorials Bubble Sort Program in Java: Sorting Algorithm EXAMPLE What is Bubble Sort? Bubble sort is a simple algorithm which compares the first element of the... Read more Java Tutorials Top 22 Groovy Interview Questions & Answers 1) Explain what is Groovy? Groovy is an object-oriented programming language for JVM (Java Virtual... Read more Java Tutorials Java String replace(), replaceFirst() & replaceAll() Method EXAMPLE Java String has three types of Replace method replace replaceAll replaceFirst. With the help of... Read more Java Tutorials Java Program to Check Prime Number What is a Prime Number? A prime number is a number that is only divisible by 1 or itself. For... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

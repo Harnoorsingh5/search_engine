@@ -1,0 +1,208 @@
+https://www.guru99.com//java-reflection-api.html
+Java Reflection API Tutorial with Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java Reflection API Tutorial with Example Details Last Updated: 25 March 2020 What is Reflection in Java? Java Reflection is the process of analyzing and modifying all the capabilities of a class at runtime. Reflection API in Java is used to manipulate class and its members which include fields, methods, constructor, etc. at runtime. One advantage of reflection API in Java is, it can manipulate private members of the class too. The java.lang.reflect package provides many classes to implement reflection java.Methods of the java.lang.Class class is used to gather the complete metadata of a particular class. In this tutorial, you will learn- What is Reflection Class in java.lang.reflect Package Methods used in java.lang.Class How to get complete information about a class Example 1: How to get Metadata of Class Example 2: How to get Metadata of Variable Example 3: How to get Metadata of Method Example 4: How to get Metadata of Constructors Class in java.lang.reflect Package Following is a list of various Java classes in java.lang.package to implement reflection- Field: This class is used to gather declarative information such as datatype, access modifier, name and value of a variable. Method: This class is used to gather declarative information such as access modifier, return type, name, parameter types and exception type of a method. Constructor: This class is used to gather declarative information such as access modifier, name and parameter types of a constructor. Modifier: This class is used to gather information about a particular access modifier. Methods used in java.lang.Class Public String getName (): Returns the name of the class. public Class getSuperclass(): Returns the super class reference Public Class[] getInterfaces() : Returns an array of interfaces implemented by the specified class Public in getModifiers (): Returns an integer value representing the modifiers of the specified class which needs to be passed as a parameter to "public static String toString (int i )" method which returns the access specifier for the given class. How to get complete information about a class To get information about variables, methods, and constructors of a class, we need to create an object of the class. 
+public class Guru99ClassObjectCreation {
+	public static void main (String[] args) throws ClassNotFoundException {
+		//1 - By using Class.forname() method 
+		Class c1 = Class.forName("Guru99ClassObjectCreation"); 
+		//2- By using getClass() method 
+		Guru99ClassObjectCreation guru99Obj = new Guru99ClassObjectCreation();
+		Class c2 = guru99Obj.getClass();
+		//3- By using .class 
+		Class c3= Guru99ClassObjectCreation.class;
+		}
+	}
+ Following example shows different ways to create object of class "class" : Example 1 : How to get Metadata of Class Following example shows how to get metadata such as: Class name, super class name, implemented interfaces, and access modifiers of a class. We will get the metadata of below class named Guru99Base.class: 
+import java.io.Serializable;
+public abstract class Guru99Base implements Serializable,Cloneable {
+}
+ Name of the class is: Guru99Base It's access modifiers are: public and abstract It has implemented interfaces: Serializable and Cloneable Since it has not extended any class explicitly, it's super class is: java.lang.Object Below class will get the meta data of Guru99Base.class and print it: 
+import java.lang.reflect.Modifier;
+public class Guru99GetclassMetaData {
+
+	public static void main (String [] args) throws ClassNotFoundException { 
+	// Create Class object for Guru99Base.class 
+	Class guru99ClassObj = Guru99Base.class;
+	
+	// Print name of the class 
+	system.out.println("Name of the class is : " +guru99ClassObj.getName());
+	
+	// Print Super class name
+	system.out.println("Name of the super class is : " +guru99ClassObj.getSuperclass().getName());
+	
+	// Get the list of implemented interfaces in the form of Class array using getInterface() method
+	class[] guru99InterfaceList = guru99classObj.getInterfaces();
+	
+	// Print the implemented interfaces using foreach loop 
+	system.out.print("Implemented interfaces are : ");
+	for (Class guru99class1 : quru99 InterfaceList)	{
+		system.out.print guru99class1.getName() + " ");
+	}
+	system.out.println();
+	
+	//Get access modifiers using get Modifiers() method and toString() method of java.lang.reflect.Modifier class
+	int guru99AccessModifier= guru99classObj.getModifiers(); 
+	// Print the access modifiers
+	System.Out.println("Access modifiers of the class are : " +Modifier.tostring(guru99AccessModifier));
+	
+	}
+}
+ print the name of the class using getName method Print the name of the super class using getSuperClass().getName() method Print the name of the implemented interfaces Print the access modifiers used by the class Example 2 : How to get Metadata of Variable Following examples shows how to get metadata of variable: Here, we are creating a class named Guru99VariableMetaData .class with some variables: 
+package guru;
+public class Guru99VariableMetaData {				
+               public static int guru99IntVar1=1111;
+               static int guru99IntVar2=2222;							
+               static String guru99StringVar1="guru99.com";							
+                static String guru99StringVar2="Learning Reflection API";    
+}	
+ Steps to get the metadata about the variables in the above class: Create the class object of the above class i.e. Guru99VariableMetaData.class as below: 
+  Guru99VariableMetaData  guru99ClassVar  = new Guru99VariableMetaData();
+  Class  guru99ClassObjVar  = guru99ClassVar.getClass(); Get the metadata in the form of field array using getFields() or getDeclaredFields() methods as below: Field[]  guru99Field1= guru99ClassObjVar .getFields();
+Field[]  guru99Fiel2= guru99ClassObjVar .getDeclaredFields(); getFields() method returns metadata of the public variable from the specified class as well as from its super class. getDeclaredFields() method returns metadata of the all the variables from the specified class only. Get the name of the variables using "public String getName()" method. Get the datatype of the variables using "public Class getType()" method. Get the value of the variable using "public xxx get (Field)" method. Here, xxx could be a byte or short of any type of value we want to fetch. Get the access modifiers of the variables using getModifier() and Modifier.toString(int i) methods. Here, we are writing a class to get the metadata of the variables present in the class Guru99VariableMetaData .class: 
+package guru;
+import java.lang.reflect.Field; 
+
+public class Guru99VariableMetaDataTest {
+	public static void main(String[] args) throws IllegalArgumentException, IllegalAccessException { 
+	// Create Class object for Guru99VariableMetaData.class 
+	Guru99VariableMetaData guru99ClassVar = new Guru99VariableMetaData(); 
+	Class guru99ClassObjVar = guru99ClassVar.getClass();
+	
+	// Get the metadata of all the fields of the class Guru99VariableMetaData 
+	Field[] guru99Field1= guru99ClassObjVar.getDeclaredFields();
+	
+	// Print name, datatypes, access modifiers and values of the varibales of the specified class 
+	for(Field field : guru99Field1) { 
+	System.out.println("Variable name : "+field.getName());
+	System.out.println("Datatypes of the variable :"+field.getType());
+	
+	int guru99AccessModifiers = field.getModifiers();
+	System.out.printlln("Access Modifiers of the variable : "+Modifier.toString(guru99AccessModifiers));
+	System.out.println("Value of the variable : "+field.get(guru99ClassVar));
+	System.out.println();
+	system.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *") ;
+	}
+	}
+}
+ Created class object for Guru99VariableMetaData.class Got all the metadata of the variables in a Field array Printed all the variable names in the class Guru99VariableMetaData.class Printed all the data types of the variables in the class Guru99VariableMetaData.class Printed all the access modifiers of the variables in the class Guru99VariableMetaData.class Printed values of all the variables in Printed all the data types of the variables in the class Guru99VariableMetaData.class Example 3 : How to get Metadata of Method Following examples shows how to get metadata of a method: Here, we are creating a class named Guru99MethodMetaData .class with some methods 
+package guru;		
+import java.sql.SQLException;		
+public class Guru99MethodMetaData {   				
+
+	public void guru99Add(int firstElement, int secondElement , String result) 									
+    throws ClassNotFoundException, ClassCastException{			
+          System.out.println("Demo method for Reflextion  API");					
+    }	
+    public String guru99Search(String searchString) 			
+    throws ArithmeticException, InterruptedException{			
+        System.out.println("Demo method for Reflection API");					
+		return null;					
+    }	
+	public void guru99Delete(String deleteString) 					
+	throws SQLException{			
+	    System.out.println("Demo method for Reflection API");					
+    }	
+}	 Steps to get the metadata about the methods in the above class : Create the class object of the above class i.e. Guru99MethodMetaData.class as below: 
+Guru99MethodMetaData  guru99ClassVar  = new Guru99MethodMetaData  ();
+Class  guru99ClassObjVar  = guru99ClassVar.getClass(); Get method information in a Method array using getMethods() and getDeclaredMethods() method as below: 
+Method[]  guru99 Method 1= guru99ClassObjVar .get Methods();
+Method []  guru99 Method 2= guru99ClassObjVar .getDeclared Method s(); getMethods() method returns metadata of the public methods from the specified class as well as from its super class. getDeclaredMethods() method returns metadata of the all the methods from the specified class only. Get the name of the method using getName() method. Get the return type of the method using getReturnType() method. Get access modifiers of the methods using getModifiers() and Modifiers.toString(int i) methods. Get method parameter types using getParameterTypes() method which returns a class array. Get thrown exception using getExceptionTypes() method which returns a class array. Here, we are writing a class to get the metadata of the methods present in the class Guru99MethodMetaData.class: 
+package guru;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+
+public class Guru99MethodMetaDataTest { 
+
+	public static void main (String[] args) {
+		// Create Class object for Guru99Method MetaData.class 
+		class guru99ClassObj = Guru99MethodMetaData.class;
+
+		// Get the metadata or information of all the methods of the class using getDeclaredMethods() 
+		Method[] guru99Methods=guru99classObj.getDeclaredMethods();
+
+		for(Method method : guru99Methods) { 
+		// Print the method names
+		System.out.println("Name of the method : "+method.getName());
+		
+		// Print return type of the methods 
+		System.out.println("Return type of the method : "+method.getReturnType());
+		
+		//Get the access modifier list and print
+		int guru99ModifierList = method.getModifiers(); 
+		System.Out.printlin ("Method access modifiers : "+Modifier.toString(guru99ModifierList));
+		
+		// Get and print parameters of the methods 
+		Class[] guru99ParamList= method.getParameterTypes(); 
+		system.out.print ("Method parameter types : "); 
+		for (Class class1 : guru99ParamList){ 
+			System.out.println(class1.getName()+" ");
+		}
+        System.out.println();
+		
+		// Get and print exception thrown by the method 
+		Class[] guru99ExceptionList = method. getExceptionTypes(); 
+		system.out.print("Excpetion thrown by method :"); 
+		for (Class class1 : guru99ExceptionList) {
+			System.out.println (class1.getName() +" "):
+		} 
+		System.Out.println(); 
+		system.out.println("* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ");
+		
+		}
+ 
+	}
+}
+ Created class object for Guru99MethodMetaData.class Got all the metadata of all the methods in a Method array Printed all the method names present in the class Guru99MethodMetaData.class Printed return types of the methods in the class Guru99MethodMetaData.class Printed all the access modifiers of the methods in the class Guru99MethodMetaData.class Printed parameter types of the methods in Guru99MethodMetaData.class Printed exceptions are thrown by methods in Guru99MethodMetaData.class Example 4 : How to get Metadata of Constructors Following examples shows how to get metadata of constructors: Here, we are creating a class named Guru99Constructor.class with different constructors: 
+package guru;		
+
+import java.rmi.RemoteException;		
+import java.sql.SQLException;		
+
+public class Guru99Constructor {				
+
+	public Guru99Constructor(int no) throws ClassCastException ,ArithmeticException{  }							
+	public Guru99Constructor(int no, String name) throws RemoteException ,SQLException{  }							
+	public Guru99Constructor(int no, String name, String address) throws InterruptedException{  }							
+} Here, we are writing a class to get the metadata of the constructors present in the class Guru99Constructor.class: 
+package guru;
+import java.lang.reflect.Constructor; 
+public class Guru99ConstructorMetaDataTest {
+	
+	public static void main (String[] args) {
+		// Create Class object for Guru99Constructor.class 
+		Class guru99Class=Guru99Constructor.class;
+
+		// Get all the constructor information in the Constructor array
+		Constructor[] guru99ConstructorList = guru99Class.getConstructors();
+		
+		for (Constructor constructor : guru99ConstructorList) {
+			// Print all name of each constructor
+			System.out.println("Constrcutor name : "+constructor.getName());
+			
+			//Get and print access modifiers of each constructor 
+			int guru99Modifiers= constructor.getModifiers(); 
+			System.Out.printlin ("Constrctor modifier : "+Modifier.toString(guru99Modifiers));
+			
+			// Get and print parameter types 
+			Class[] guru99ParamList=constructor.getParameterTypes();
+			System.out.print ("Constrctor parameter types :"); 
+			for (Class class1 : guru99ParamList) { 
+				System.out.println(class1.getName() +" ");
+			}
+			System. out.println();
+
+			// Get and print exception thrown by constructors
+			Class[] guru99ExceptionList=constructor.getFxceptionTypes();
+			System.out.println("Exception thrown by constructors :"); 
+			for (Class class1 : guru99ExceptionList) { 
+				System.out.println(class1.getName() +" ");
+			} 
+			System.out.println();
+			System.out.println("*******************************************");
+		}
+	}
+}
+ 
+
+
+
+ Created class object for Guru99Constructor.class Got all the metadata of all the constructors in a Constructor array Printed all the constructor's names present in the class Guru99Constructor.class Printed all the access modifiers of the constructors in the class Guru99Constructor.class Printed parameter types of the constructors in Guru99Constructor.class Printed exceptions are thrown by constructors in Guru99Constructor.class Summary: Reflection programming in java helps in retrieving and modifying information about Classes and Class members such variable, methods, constructors. Reflection API in Java can be implemented using classes in java.lang.reflect package and methods of java.lang.Class class. Some commonly used methods of java.lang.Class class are getName (), getSuperclass (), getInterfaces (), getModifiers () etc. Some commonly used classes in java.lang.reflect package are Field, Method, Constructor, Modifier, etc. Reflection API can access private methods and variables of a class which could be a security threat. Reflection API is a powerful capability provided by Java, but it comes with some overheads such as slower performance, security vulnerability, and permission issue. Hence, reflection API should be treated as the last resort to performing an operation.   Prev Report a Bug Next YOU MIGHT LIKE: JavaScript QuickSort Algorithm in JavaScript What is Quick Sort? Quick Sort algorithm follows Divide and Conquer approach. It divides elements... Read more Java Tutorials How to easily Generate Random Numbers in Java In this tutorial, we will learn about Generate Random Numbers- Using Java Random Class Using Java... Read more Java Tutorials Top 22 Java Design Patterns Interview Questions & Answers 1) Explain what is Java Design Pattern? A design pattern is a language independent strategy for... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more JavaScript TypeScript Tutorial: Types, Arrays, Enum, Classes, Interfaces What is Typescript? Typescript is a superset of JavaScript. TypeScript is pure object-oriented... Read more Java Tutorials How to Convert Char to String in Java (Examples) In this tutorial, we will study programs to To convert a character to String To convert a String to... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

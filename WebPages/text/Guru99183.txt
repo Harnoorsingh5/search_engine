@@ -1,0 +1,106 @@
+https://www.guru99.com//java-arrays.html
+Java Arrays Tutorial: Declare, Create, Initialize [Example] Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java Arrays Tutorial: Declare, Create, Initialize [Example] Details Last Updated: 25 March 2020 What is an Array? An array is a very common type of data structure wherein all elements must be of the same data type. Once defined, the size of an array is fixed and cannot increase to accommodate more elements.The first element of an array starts with index zero. In simple words, it’s a programming construct which helps to replace this 
+x0=0;
+x1=1;
+x2=2;
+x3=3;
+x4=4;
+x5=5;
+ with this … 
+x[0]=0;
+x[1]=1;
+x[2]=2;
+x[3]=3;
+x[4]=4;
+x[5]=5;
+ In this tutorial, you will learn- What is an array? Array Variables First Array Program Java Array: Pass by reference Multidimensional arrays how this helps is that a variable can reference the index (the number in the bracket[]) for easy looping. 
+for(count=0; count<5; count++) {
+     System.out.println(x[count]);
+   }
+ Array Variables Using an array in your program is a 3 step process - 1) Declaring your Array 2) Constructing your Array3) Initialize your Array 1) Declaring your Array Syntax 
+<elementType>[] <arrayName>;
+ or 
+ <elementType> <arrayName>[];
+ Example: 
+int intArray[];
+ // Defines that intArray is an ARRAY variable which will store integer values
+int []intArray;
+ 2) Constructing an Array 
+ arrayname = new dataType[]
+ Example: 
+intArray = new int[10]; // Defines that intArray will store 10 integer values
+ Declaration and Construction combined 
+int intArray[] = new int[10];
+ 3) Initialize an Array 
+intArray[0]=1; // Assigns an integer value 1 to the first element 0 of the array
+
+intArray[1]=2; // Assigns an integer value 2 to the second element 1 of the array
+ Declaring and initialize an Array 
+[]  = {};
+ Example: 
+ int intArray[] = {1, 2, 3, 4};
+// Initilializes an integer array of length 4 where the first element is 1 , second element is 2 and so on.
+ First Array Program Step 1) Copy the following code into an editor. 
+class ArrayDemo{
+     public static void main(String args[]){
+        int array[] = new int[7];
+        for (int count=0;count<7;count++){
+           array[count]=count+1;
+       }
+       for (int count=0;count<7;count++){
+           System.out.println("array["+count+"] = "+array[count]);
+       }
+      //System.out.println("Length of Array  =  "+array.length);
+      // array[8] =10;
+      }
+}
+ Step 2) Save , Compile & Run the code. Observe the Output Output: 
+array[0] = 1
+array[1] = 2
+array[2] = 3
+array[3] = 4
+array[4] = 5
+array[5] = 6
+array[6] = 7
+ Step 3) If x is a reference to an array, x.length will give you the length of the array. Uncomment line #10. Save, Compile & Run the code.Observe the Output 
+Length of Array  =  7
+ Step 4) Unlike C, Java checks the boundary of an array while accessing an element in it. Java will not allow the programmer to exceed its boundary. Uncomment line #11. Save, Compile & Run the code.Observe the Output 
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 8
+        at ArrayDemo.main(ArrayDemo.java:11)
+Command exited with non-zero status 1
+ Step 5) ArrayIndexOutOfBoundsException is thrown. In case of C, the same code would have shown some garbage value. Java Array: Pass by reference Arrays are passed to functions by reference, or as a pointer to the original. This means anything you do to the Array inside the function affects the original. Example: To understand Array are passed by reference Step 1) Copy the following code into an editor 
+class ArrayDemo {
+   public static void passByReference(String a[]){
+     a[0] = "Changed";
+   }
+ 
+   public static void main(String args[]){
+      String []b={"Apple","Mango","Orange"};
+      System.out.println("Before Function Call    "+b[0]);
+      ArrayDemo.passByReference(b);
+      System.out.println("After Function Call    "+b[0]);
+   }
+}
+ Step 2) Save, Compile & Run the code. Observe the Output Output: 
+Before Function Call    Apple
+After Function Call    Changed
+ Multidimensional arrays Multidimensional arrays are actually arrays of arrays. To declare a multidimensional array variable, specify each additional index using another set of square brackets. 
+Ex: int twoD[ ][ ] = new int[4][5] ;
+ When you allocate memory for a multidimensional array, you need only specify the memory for the first (leftmost) dimension. You can allocate the remaining dimensions separately. In Java, array length of each array in a multidimensional array is under your control. Example 
+public class Guru99 {
+public static void main(String[] args) {
+
+// Create 2-dimensional array.
+  int[][] twoD = new int[4][4];
+
+  // Assign three elements in it.
+  twoD[0][0] = 1;
+  twoD[1][1] = 2;
+  twoD[3][2] = 3;
+  System.out.print(twoD[0][0] + " ");
+}
+
+}
+ Output: 
+1
+   Prev Report a Bug Next YOU MIGHT LIKE: JavaScript QuickSort Algorithm in JavaScript What is Quick Sort? Quick Sort algorithm follows Divide and Conquer approach. It divides elements... Read more Java Tutorials How to Reverse a String in Java using Recursion In this example program, we will reverse a string entered by a user. We will create a function to... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more Java Tutorials Java String replace(), replaceFirst() & replaceAll() Method EXAMPLE Java String has three types of Replace method replace replaceAll replaceFirst. With the help of... Read more JavaScript Java vs JavaScript: Most Important Differences You Must Know What is Java? Java is a multi-platform, object-oriented, and network-centric, programming... Read more Java Tutorials Java vs Scala: What is the Difference? What is Java? Java is a multi-platform, object-oriented, network-centric, programming language... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

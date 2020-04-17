@@ -1,0 +1,119 @@
+https://www.guru99.com//multithreading-java.html
+Multithreading in Java Tutorial with Examples Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Multithreading in Java Tutorial with Examples Details Last Updated: 25 March 2020 Any application can have multiple processes (instances). Each of this process can be assigned either as a single thread or multiple threads. We will see in this tutorial how to perform multiple tasks at the same time and also learn more about threads and synchronization between threads. In this tutorial, we will learn: What is Single Thread What is Multithreading in Java? Thread Life Cycle in Java Java Thread Synchronization Java Multithreading Example What is Single Thread? A single thread is basically a lightweight and the smallest unit of processing. Java uses threads by using a "Thread Class". There are two types of thread – user thread and daemon thread (daemon threads are used when we want to clean the application and are used in the background). When an application first begins, user thread is created. Post that, we can create many user threads and daemon threads. Single Thread Example: 
+package demotest;
+
+public class GuruThread
+{
+       public static void main(String[] args) {
+              System.out.println("Single Thread");
+       }
+} Advantages of single thread: Reduces overhead in the application as single thread execute in the system Also, it reduces the maintenance cost of the application. What is Multithreading in Java? MULTITHREADING in Java is a process of executing two or more threads simultaneously to maximum utilization of CPU. Multithreaded applications execute two or more threads run concurrently. Hence, it is also known as Concurrency in Java. Each thread runs parallel to each other. Mulitple threads don't allocate separate memory area, hence they save memory. Also, context switching between threads takes less time. Example of Multi thread: 
+package demotest;
+
+public class GuruThread1 implements Runnable
+{
+       public static void main(String[] args) {
+        Thread guruThread1 = new Thread("Guru1");
+        Thread guruThread2 = new Thread("Guru2");
+        guruThread1.start();
+        guruThread2.start();
+        System.out.println("Thread names are following:");
+        System.out.println(guruThread1.getName());
+        System.out.println(guruThread2.getName());
+    }
+    @Override
+    public void run() {
+    }
+
+}
+ Advantages of multithread: The users are not blocked because threads are independent, and we can perform multiple operations at times As such the threads are independent, the other threads won't get affected if one thread meets an exception. Thread Life Cycle in Java The Lifecycle of a thread: There are various stages of life cycle of thread as shown in above diagram: New Runnable Running Waiting Dead New: In this phase, the thread is created using class "Thread class".It remains in this state till the program starts the thread. It is also known as born thread. Runnable: In this page, the instance of the thread is invoked with a start method. The thread control is given to scheduler to finish the execution. It depends on the scheduler, whether to run the thread. Running: When the thread starts executing, then the state is changed to "running" state. The scheduler selects one thread from the thread pool, and it starts executing in the application. Waiting: This is the state when a thread has to wait. As there multiple threads are running in the application, there is a need for synchronization between threads. Hence, one thread has to wait, till the other thread gets executed. Therefore, this state is referred as waiting state. Dead: This is the state when the thread is terminated. The thread is in running state and as soon as it completed processing it is in "dead state". Some of the commonly used methods for threads are: Method Description start() This method starts the execution of the thread and JVM calls the run() method on the thread. Sleep(int milliseconds) This method makes the thread sleep hence the thread's execution will pause for milliseconds provided and after that, again the thread starts executing. This help in synchronization of the threads. getName() It returns the name of the thread. setPriority(int newpriority) It changes the priority of the thread. yield () It causes current thread on halt and other threads to execute. Example: In this example we are going to create a thread and explore built-in methods available for threads. 
+package demotest;
+public class thread_example1 implements Runnable {
+    @Override
+    public void run() {
+    }
+    public static void main(String[] args) {
+        Thread guruthread1 = new Thread();
+        guruthread1.start();
+        try {
+            guruthread1.sleep(1000);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        guruthread1.setPriority(1);
+        int gurupriority = guruthread1.getPriority();
+        System.out.println(gurupriority);
+        System.out.println("Thread Running");
+  }
+}
+
+ Explanation of the code: Code Line 2: We are creating a class "thread_Example1" which is implementing the Runnable interface (it should be implemented by any class whose instances are intended to be executed by the thread.) Code Line 4: It overrides run method of the runnable interface as it is mandatory to override that method Code Line 6: Here we have defined the main method in which we will start the execution of the thread. Code Line 7: Here we are creating a new thread name as "guruthread1" by instantiating a new class of thread. Code Line 8: we will use "start" method of the thread using "guruthread1" instance. Here the thread will start executing. Code Line 10: Here we are using the "sleep" method of the thread using "guruthread1" instance. Hence, the thread will sleep for 1000 milliseconds. Code 9-14: Here we have put sleep method in try catch block as there is checked exception which occurs i.e. Interrupted exception. Code Line 15: Here we are setting the priority of the thread to 1 from whichever priority it was Code Line 16: Here we are getting the priority of the thread using getPriority() Code Line 17: Here we are printing the value fetched from getPriority Code Line 18: Here we are writing a text that thread is running. When you execute the above code, you get the following output: Output: 5 is the Thread priority, and Thread Running is the text which is the output of our code. Java Thread Synchronization In multithreading, there is the asynchronous behavior of the programs. If one thread is writing some data and another thread which is reading data at the same time, might create inconsistency in the application. When there is a need to access the shared resources by two or more threads, then synchronization approach is utilized. Java has provided synchronized methods to implement synchronized behavior. In this approach, once the thread reaches inside the synchronized block, then no other thread can call that method on the same object. All threads have to wait till that thread finishes the synchronized block and comes out of that. In this way, the synchronization helps in a multithreaded application. One thread has to wait till other thread finishes its execution only then the other threads are allowed for execution. It can be written in the following form: 
+Synchronized(object)
+{  
+        //Block of statements to be synchronized
+} Java Multithreading Example In this example, we will take two threads and fetch the names of the thread. Example1: 
+GuruThread1.java
+package demotest;
+public class GuruThread1 implements Runnable{
+
+    /**
+     * @param args
+     */
+    public static void main(String[] args) {
+        Thread guruThread1 = new Thread("Guru1");
+        Thread guruThread2 = new Thread("Guru2");
+        guruThread1.start();
+        guruThread2.start();
+        System.out.println("Thread names are following:");
+        System.out.println(guruThread1.getName());
+        System.out.println(guruThread2.getName());
+    }
+    @Override
+    public void run() {
+    }
+
+}
+ Explanation of the code: Code Line 3: We have taken a class "GuruThread1" which implements Runnable (it should be implemented by any class whose instances are intended to be executed by the thread.) Code Line 8: This is the main method of the class Code Line 9: Here we are instantiating the Thread class and creating an instance named as "guruThread1" and creating a thread. Code Line 10: Here we are instantiating the Thread class and creating an instance named a "guruThread2" and creating a thread. Code Line 11: We are starting the thread i.e. guruThread1. Code Line 12: We are starting the thread i.e. guruThread2. Code Line 13: Outputting the text as "Thread names are following:" Code Line 14: Getting the name of thread 1 using method getName() of the thread class. Code Line 15: Getting the name of thread 2 using method getName() of the thread class. When you execute the above code, you get the following output: Output: Thread names are being outputted here as Guru1 Guru2 Example 2: In this example, we will learn about overriding methods run() and start() method of a runnable interface and create two threads of that class and run them accordingly. Also, we are taking two classes, One which will implement the runnable interface and Another one which will have the main method and execute accordingly. 
+package demotest;
+public class GuruThread2 {
+
+ public static void main(String[] args) {
+  // TODO Auto-generated method stub
+  GuruThread3 threadguru1 = new GuruThread3("guru1");
+  threadguru1.start();
+  GuruThread3 threadguru2 = new GuruThread3("guru2");
+  threadguru2.start();
+ }
+}
+class GuruThread3 implements Runnable {
+ Thread guruthread;
+ private String guruname;
+ GuruThread3(String name) {
+  guruname = name;
+ }
+ @Override
+ public void run() {
+  System.out.println("Thread running" + guruname);
+  for (int i = 0; i < 4; i++) {
+   System.out.println(i);
+   System.out.println(guruname);
+   try {
+    Thread.sleep(1000);
+   } catch (InterruptedException e) {
+    System.out.println("Thread has been interrupted");
+   }
+  }
+ }
+ public void start() {
+  System.out.println("Thread started");
+  if (guruthread == null) {
+   guruthread = new Thread(this, guruname);
+   guruthread.start();
+  }
+
+ }
+}
+
+
+ Explanation of the code: Code Line 2: Here we are taking a class "GuruThread2" which will have the main method in it. Code Line 4: Here we are taking a main method of the class. Code Line 6-7: Here we are creating an instance of class GuruThread3 (which is created in below lines of the code) as "threadguru1" and we are starting the thread. Code Line 8-9: Here we are creating another instance of class GuruThread3 (which is created in below lines of the code) as "threadguru2" and we are starting the thread. Code Line 11: Here we are creating a class "GuruThread3" which is implementing the runnable interface (it should be implemented by any class whose instances are intended to be executed by the thread.) Code Line 13-14: we are taking two class variables from which one is of the type thread class and other of the string class. Code Line 15-18: we are overriding the GuruThread3 constructor, which takes one argument as string type (which is threads name) that gets assigned to class variable guruname and hence the name of the thread is stored. Code Line 20: Here we are overriding the run() method of the runnable interface. Code Line 21: We are outputting the thread name using println statement. Code Line 22-31: Here we are using a for loop with counter initialized to 0, and it should not be less than 4 (we can take any number hence here loop will run 4 times) and incrementing the counter. We are printing the thread name and also making the thread sleep for 1000 milliseconds within a try-catch block as sleep method raised checked exception. Code Line 33: Here we are overriding start method of the runnable interface. Code Line 35: We are outputting the text "Thread started". Code Line 36-40: Here we are taking an if condition to check whether class variable guruthread has value in it or no. If its null then we are creating an instance using thread class which takes the name as a parameter (value for which was assigned in the constructor). After which the thread is started using start() method. When you execute the above code you get the following output: Output: There are two threads hence, we get two times message "Thread started". We get the names of the thread as we have outputted them. It goes into for loop where we are printing the counter and thread name and counter starts with 0. The loop executes three times and in between the thread is slept for 1000 milliseconds. Hence, first, we get guru1 then guru2 then again guru2 because the thread sleeps here for 1000 milliseconds and then next guru1 and again guru1, thread sleeps for 1000 milliseconds, so we get guru2 and then guru1. Summary: In this tutorial, we saw multithreaded applications in Java and how to use single and multi threads. In multithreading, users are not blocked as threads are independent and can perform multiple operations at time Various stages of life cycle of the thread are, New Runnable Running Waiting Dead We also learned about synchronization between threads, which help the application to run smoothly. Multithreading makes many more application tasks easier.   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials Selection Sorting in Java Program with Example How does Selection Sort work? Selection Sort implements a simple sorting algorithm as follows:... Read more Java Tutorials JAVA Programming Tutorial for Beginners PDF Java is the most popular programming language & is the language of choice for Android programming. Key... Read more Java Tutorials Java vs Scala: What is the Difference? What is Java? Java is a multi-platform, object-oriented, network-centric, programming language... Read more JavaScript QuickSort Algorithm in JavaScript What is Quick Sort? Quick Sort algorithm follows Divide and Conquer approach. It divides elements... Read more Java Tutorials JasperReports Tutorial: Install Studio, Template Example What is Jasper Reports? JasperReports is an open-source Java reporting engine. This Java class... Read more Java Tutorials String endsWith() Method in Java with Example What is String "endsWith" Method? The Java endsWith method is used to check whether the string is... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

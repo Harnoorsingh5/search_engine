@@ -1,0 +1,437 @@
+https://www.guru99.com//json-to-xml-gson-jaxb.html
+Convert JSON to XML using Gson and JAXB: JAVA Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Convert JSON to XML using Gson and JAXB: JAVA Example Details Last Updated: 25 March 2020 What is JSON? JSON is an abbreviation for Javascript Object Notation, which is a form of data that follows a certain rule that most programming languages are currently readable. We can easy to save it to a file or record in the database. JSON format uses key-value pairs to describe data. In following the example, we define a JSON string that stores personal information: {
+"username" : "guru99user",
+"email" : "This email address is being protected from spambots. You need JavaScript enabled to view it. 
+	 "	
+}
+ So the syntax of JSON is very simple. Each data information will have two parts: key and value which correspond to the field name and its value in a certain record. But as further looking, there are a few things like this: The JSON string is enclosed by curly braces {}. The keys and values of JSON must be enclosed in quotation marks {"}. If there is more data (more key => value pairs), we use commas (,) to separate. JSON keys should be unsigned letters or numbers, _, and no spaces, the first character should not be set to numbers. In this tutorial, you will learn What is JSON? What is XML? What is Gson? What is JAXB? Initial Setup Convert XML message to Java objects using JAXB Convert Java objects to JSON message using Gson Convert JSON message to Java objects using Gson Convert Java objects to XML message using JAXB What is XML? XML stands for eXtensible Markup Language also called the extensible markup language proposed by the World Wide Web Consortium (http://www.w3.org/) to create other markup languages. This is a simple subset that can describe many different types of data, so it is very useful in sharing data between systems. Tags in XML are often not predefined, but they are created according to user conventions. XML introduces new features based on the advantages of HTML. There are some more useful XML-making features in diverse systems and solutions: XML is extensible: XML allows you to create your own custom tags to suit your application. XML carries data, not displaying it: XML allows you to store data regardless of how it will be displayed. XML is a common standard: XML was developed by the World Wide Web Consortium (W3C) and is available as an open standard. XML is built on a nested node structure. Each node will have an opening tag and a closing tag as follows: 
+<node>content</node>
+ In which: <node> is an open tag, the name of this tag is defined by you. </node> is a closed tag, the name of this tag must match the name of the open tag. content is the content of this tag. At the top of each XML file you must declare a tag to indicate the version XML is in use. The syntax of the instruction tag: <?xml version="1.0" encoding="UTF-8" standalone="yes"?> What is Gson? Gson (https://github.com/google/gson) is a java library that allows users to convert from a Java object to JSON string and also convert from a JSON string to Java object. Gson can work with arbitrary Java objects including existing objects without you having their source-code. Since version 1.6, Gson introduces two new classes – JsonReader and JsonWriter to provide streaming processing on JSON data. JsonWriter – Streaming write to JSON. The syntax for general implementation is as follows. We create a JsonWriter object. To start and finish creating a JSON string, we use the function beginObject() and endObject(). In the middle of executing these two functions, we perform writing data with pairs (key => value). JsonWriter writer = new JsonWriter();
+writer.beginObject();
+writer.name("key").value("value");
+writer.endObject();
+ JsonReader – Streaming read from JSON. The syntax for general implementation is as follows. We create a JsonReader object. To start and finish creating a JSON string, we use the function beginObject() and endObject(). In the middle of executing these two functions, we perform reading data with pairs (key => value). JsonReader reader = new JsonReader();
+reader.beginObject();
+while (reader.hasNext()) {
+	String name = reader.nextName();
+	if (name.equals("key")) {
+		String value = reader.nextString();
+	}
+}
+reader.endObject();
+ Gson streaming processing is fast. However you need to handle each pair (key => value) of processing JSON data. What is JAXB? JAXB stands for Java Architecture for XML Binding, which is a library that uses annotations to convert Java objects to XML content and vice versa. As JAXB is defined via a specification, we can use different implementations for this standard. With JAXB, we often use following basic annotations, namely: @XmlRootElement: This annotation specifies what the outermost tag of the XML file is and therefore it is declared on top of a class. @XmlElementWrapper: This annotation creates a wrapper XML element around collections. @XmlElement: This annotation uses to declare an attribute of the object is a tag of the XML file. @XmlAttribute: This annotation also used to declare an attribute of the object is a tag of the XML file. The syntax for general implementation is as follows. First, we will initialize the JAXBContext object with the MyObject object to convert. JAXBContext jaxbContext = JAXBContext.newInstance(MyObject.class);
+ In this JAXBContext object, it has a method to create an object that converts XML content to a Java object, Unmarshaller. Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller(); In this JAXBContext object, it has a method to create the object that converts the Java object to the XML content that is Marshaller. Marshaller marshallerObj = jaxbContext.createMarshaller();
+ Initial Setup We implement the example of XML - JSON conversion on the platform: Open JDK 8 for Ubuntu 18.04 x64. Eclipse IDE 2019-03 (4.11.0) x64 Java Development for Ubuntu. Gson 2.8.5. Step 1. Create a new Java Project. Create a new Java Project. Step 2. Set Project name is XmlToJsonExample. Set Project name. Step 3. Create folder data/input containing two file sample.xml and sample.json. Create folder data/input. Let's first define our XML with department, role and person properties. The general architechture is: <one department – many roles> ; <one role – many persons>. Object Relationships. 
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+	<department>
+		<roles>
+			<role id="1">
+				<position>head</position>
+				<salary>10k</salary>
+			</role>
+			<role id="2">
+				<position>manager</position>
+				<salary>8k</salary>
+			</role>
+			<role id="3">
+				<position>employee</position>
+				<salary>5k</salary>
+			</role>
+		</roles>
+		<persons>
+			<person id="1">
+				<name>Red</name>
+				<role>1</role>
+			</person>
+			<person id="2">
+				<name>Green</name>
+				<role>2</role>
+			</person>
+			<person id="3">
+				<name>Blue</name>
+				<role>2</role>
+			</person>
+			<person id="4">
+				<name>Yellow</name>
+				<role>3</role>
+			</person>
+			<person id="5">
+				<name>Brown</name>
+				<role>3</role>
+			</person>
+		</persons>
+	</department>
+</root>
+ Secondly, we define JSON having the same idea: {
+	"roles": [
+		{
+			"id": "1",
+			"position": "head",
+			"salary": "10k",
+			"persons": [
+				{
+					"id": "1",
+					"name": "Red"
+				}
+			]
+		},
+		{
+			"id": "2",
+			"position": "manager",
+			"salary": "8k",
+			"persons": [
+				{
+					"id": "2",
+					"name": "Green"
+				},
+				{
+					"id": "3",
+					"name": "Blue"
+				}
+			]
+		},
+		{
+			"id": "3",
+			"position": "employee",
+			"salary": "5k",
+			"persons": [
+				{
+					"id": "4",
+					"name": "Yellow"
+				},
+				{
+					"id": "5",
+					"name": "Brown"
+				}
+			]
+		}
+	]	
+}
+ Step 4. Define corresponding object classes in the package model. Define object classes. Role.java: @XmlRootElement(name = "role")
+public class Role {
+
+	private String id;
+	private String position;
+	private String salary;
+
+	public Role() {
+		super();
+	}
+
+	public Role(String id, String position, String salary) {
+		super();
+		this.id = id;
+		this.position = position;
+		this.salary = salary;
+	}
+
+	@XmlAttribute(name = "id")
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	@XmlElement(name = "position")
+	public String getPosition() {
+		return position;
+	}
+
+	public void setPosition(String position) {
+		this.position = position;
+	}
+
+	@XmlElement(name = "salary")
+	public String getSalary() {
+		return salary;
+	}
+
+	public void setSalary(String salary) {
+		this.salary = salary;
+	}
+
+}
+ Person.java: @XmlRootElement(name = "person")
+public class Person {
+
+	private String id;
+	private String name;
+	private String role;
+
+	public Person() {
+		super();
+	}
+
+	public Person(String id, String name, String role) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.role = role;
+	}
+
+	@XmlAttribute(name = "id")
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	@XmlElement(name = "name")
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@XmlElement(name = "role")
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+}
+ Department.java: 
+@XmlRootElement(name = "department")
+public class Department {
+
+	private List<Role> roles;
+	private List<Person> persons;
+
+	public Department() {
+		super();
+	}
+
+	public Department(List<Role> roles, List<Person> persons) {
+		super();
+		this.roles = roles;
+		this.persons = persons;
+	}
+
+	@XmlElementWrapper(name = "roles")
+	@XmlElement(name = "role")
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
+	@XmlElementWrapper(name = "persons")
+	@XmlElement(name = "person")
+	public List<Person> getPersons() {
+		return persons;
+	}
+
+	public void setPersons(List<Person> persons) {
+		this.persons = persons;
+	}
+
+}
+ XMLModel.java: @XmlRootElement(name = "root")
+public class XMLModel {
+
+	private Department department;
+
+	public XMLModel() {
+		super();
+	}
+
+	public XMLModel(Department department) {
+		super();
+		this.department = department;
+	}
+
+	@XmlElement(name = "department")
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+}
+ Step 5. Set up library Gson 2.8.5. Add library Gson 2.8.5 into Java Build Path. Convert XML message to Java objects using JAXB Firstly, we define performing classed in package service. Define performing classes. At the first step of the first process, we use technique Un-marshalling of JAXB. Un-marshalling provides a client application the ability to convert XML data into JAXB derived Java objects. We define function getObjectFromXmlFile to un-marshal our XML file back to a Java object. This function is defined in class XMLService. public XMLModel getObjectFromXmlFile(String filePath) {
+	try {
+		File file = new File(filePath);
+		JAXBContext jaxbContext = JAXBContext.newInstance(XMLModel.class);
+
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		XMLModel root = (XMLModel) jaxbUnmarshaller.unmarshal(file);
+
+		return root;
+	} catch (JAXBException e) {
+		e.printStackTrace();
+		return null;
+	}
+}
+ We call the code above in class XmlToJsonService. XMLService xmlService = new XMLService();
+XMLModel xmlModel = xmlService.getObjectFromXmlFile(filePathIn);
+
+Department department = xmlModel.getDepartment();
+List<Role> roles = department.getRoles();
+List<Person> persons = department.getPersons();
+ Then we go to next step. Convert Java objects to JSON message using Gson At this step, we define function writeDataToJsonFile to write data to the JSON file. This function is defined in class JsonService. Note that to write a list of JSON strings, we use the function beginArray() and endArray(). Between these two functions, we write each JSON string. public void writeDataToJsonFile(String filePath, List<Role> roles, List<Person> persons) {
+	try {
+		JsonWriter writer = new JsonWriter(new FileWriter(filePath));
+
+		writer.setIndent("    ");
+
+		writer.beginObject();
+
+		writer.name("roles");
+
+		writer.beginArray();
+
+		for (Role role : roles) {
+			writer.beginObject();
+
+			writer.name("id").value(role.getId());
+			writer.name("position").value(role.getPosition());
+			writer.name("salary").value(role.getSalary());
+
+			writer.name("persons");
+
+			writer.beginArray();
+
+			for (Person person : persons) {
+				if (person.getRole().equalsIgnoreCase(role.getId())) {
+					writer.beginObject();
+
+					writer.name("id").value(person.getId());
+					writer.name("name").value(person.getName());
+
+					writer.endObject();
+				}
+			}
+
+			writer.endArray();
+
+			writer.endObject();
+		}
+
+		writer.endArray();
+
+		writer.endObject();
+
+		writer.close();
+	} catch (IOException e) {
+
+	}
+}
+ We call the above code in class XmlToJsonService. JsonService jsonService = new JsonService();
+jsonService.writeDataToJsonFile(filePathOut, roles, persons);
+ That's the first process. Convert JSON message to Java objects using Gson At the first step of second process, we define function getDataFromJsonFile to read data from JSON file. This function is defined in class JsonService. Note that to read a list of JSON strings, we use the function beginArray() and endArray(). Between these two functions, we read each JSON string. public void getDataFromJsonFile(String filePath, List<Role> roles, List<Person> persons) {
+	try {
+		JsonReader reader = new JsonReader(new FileReader(filePath));
+
+		reader.beginObject();
+
+		while (reader.hasNext()) {
+			String nameRoot = reader.nextName();
+
+			if (nameRoot.equals("roles")) {
+				reader.beginArray();
+
+				while (reader.hasNext()) {
+					reader.beginObject();
+
+					Role role = new Role();
+
+					while (reader.hasNext()) {
+						String nameRole = reader.nextName();
+
+						if (nameRole.equals("id")) {
+							role.setId(reader.nextString());
+						} else if (nameRole.equals("position")) {
+							role.setPosition(reader.nextString());
+						} else if (nameRole.equals("salary")) {
+							role.setSalary(reader.nextString());
+						} else if (nameRole.equals("persons")) {
+							reader.beginArray();
+
+							while (reader.hasNext()) {
+								reader.beginObject();
+
+								Person person = new Person();
+
+								person.setRole(role.getId());
+
+						while (reader.hasNext()) {
+							String namePerson = reader.nextName();
+
+							if (namePerson.equals("id")) {
+								person.setId(reader.nextString());
+							} else if (namePerson.equals("name")) {
+								person.setName(reader.nextString());
+							}
+						}
+
+								persons.add(person);
+
+								reader.endObject();
+							}
+
+							reader.endArray();
+						}
+					}
+
+					roles.add(role);
+
+					reader.endObject();
+				}
+
+				reader.endArray();
+			}
+		}
+
+		reader.endObject();
+
+		reader.close();
+	} catch (IOException e) {
+
+	}
+}
+
+ We call the above code in class XmlToJsonService. 
+JsonService jsonService = new JsonService();
+List<Role> roles = new ArrayList<>();
+List<Person> persons = new ArrayList<>();
+
+jsonService.getDataFromJsonFile(filePathIn, roles, persons);
+ Then we go to next step. Convert Java objects to XML message using JAXB At this step, we use technique Marshalling of JAXB. Marshalling provides a client application the ability to convert a JAXB derived Java object tree into XML data. We define function parseObjectToXm to marshall Java object to XML message. This function is defined in class XMLService.
+public void parseObjectToXml(String filePath, XMLModel xmlModel) {
+	try {
+		JAXBContext contextObj = JAXBContext.newInstance(XMLModel.class);
+
+		Marshaller marshallerObj = contextObj.createMarshaller();
+		marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+		marshallerObj.marshal(xmlModel, new FileOutputStream(filePath));
+	} catch (JAXBException je) {
+		System.out.println("JAXBException");
+	} catch (IOException ie) {
+		System.out.println("IOException");
+	}
+}
+ We call the above code in class XmlToJsonService. XMLService xmlService = new XMLService();
+XMLModel xmlModel = new XMLModel();
+
+Department department = new Department();
+department.setRoles(roles);
+department.setPersons(persons);
+
+xmlModel.setDepartment(department);
+
+xmlService.parseObjectToXml(filePathOut, xmlModel); That's the second process. Conclusion In this tutorial, we briefly learned one way in which JAXB can read XML data and Gson write it to JSON. On the contrary, we also saw the way that Gson read JSON data and JAXB write it to XML. This article is contributed by David Howard   Prev Report a Bug Next YOU MIGHT LIKE: JavaScript TypeScript Tutorial: Types, Arrays, Enum, Classes, Interfaces What is Typescript? Typescript is a superset of JavaScript. TypeScript is pure object-oriented... Read more JavaScript JavaScript Unit Testing Frameworks What is JavaScript? JavaScript is a programming language which is defined as high level, dynamic and... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more Java Tutorials Insertion Sort Algorithm in Java Program with Example Insertion sort is a simple sorting algorithm suited for small data sets. During each iteration,... Read more JavaScript Typescript vs JavaScript: What's the Difference? What is JavaScript? JavaScript is a scripting language which helps you create interactive web... Read more Java Tutorials Top 25 JMS (Java Message Service) Interview Questions & Answers 1) What is JMS? JMS means Java Messaging Service. It is the new standard for inter client... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

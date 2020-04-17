@@ -1,0 +1,112 @@
+https://www.guru99.com//groovy-tutorial.html
+Groovy Script Tutorial for Beginners Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Groovy Script Tutorial for Beginners Details Last Updated: 10 April 2020 What is a Groovy Script? APACHE GROOVY is an object oriented and Java syntax compatible programming language built for the Java platform. This dynamic language has many features which are similar to Python, Ruby, Smalltalk, and Pero. Groovy source code gets compiled into Java Bytecode so it can run on any platform that has JRE is installed. Groovy also performs a lot of tasks behind the scene that makes it more agile and dynamic. Groovy can be used as a scripting language for the Java platform. It is almost like a super version of Java which offers Java's enterprise capabilities. It also offers many productivity features like DSL support, closures, and dynamic typing. Unlike some other languages, it is designed as a companion, not a replacement for Java. What You Will Learn: [hide] Why Groovy? Groovy History Features of Groovy Install Groovy Groovy Hello World Example Groovy Variables Groovy-Operators Groovy-Loops Groovy- Decision Making Groovy List Groovy Maps Groovy- Closures Groovy Vs. Java Myths about Groovy Cons of using Groovy Groovy Tools Why Groovy? Here, are major reasons why you should use Groovy- Groovy is an agile and dynamic language Seamlessly integration with all existing Java objects and libraries Feels easy and natural to Java developers More concise and meaningful code compares to Java You can use it as much or as little as you like with Java apps Groovy History 2003: Developed by Bob McWhirter & James Strachan 2004: Commissioned into JSR 241 but it was abandoned 2005: Brought back by Jeremy Rayner & Guillaume Laforge 2007: Groovy version 1.0 2012: Groovy version 2 2014: Groovy version 2.3 (official support given for JDK 8) 2015: Groovy became a project at the Apache Software Foundation Features of Groovy List, map, range, regular expression literals Multimethod and metaprogramming Groovy classes and scripts are usually stored in .groovy files Scripts contain Groovy statements without any class declaration. Scripts can also contain method definitions outside of class definitions. It can be compiled and fully integrated with traditional Java application. Language level support for maps, lists, regular expressions Supports closures, dynamic typing, metaobject protocol Support for static and dynamic typing & operator overloading Literal declaration for lists (arrays), maps, ranges, and regular expressions Install Groovy Step 1) Ensure you have Java installed. https://www.guru99.com/install-java.html Step 2) Go to http://groovy-lang.org/download.html and click installer. Note: You can also install Groovy using the Zip file or as an Eclipse IDE. In this tutorial, we will stick to Windows Installer Step 3) Launch the downloaded installer. Select language and click OK Step 4) Launch. In welcome screen, click NEXT Step 5) Agree with the license terms Step 6) Select components you want to install and click next Step 7) Select Installation Directory and click Next Step 8) Choose Start Menu Folder and Click Next Step 9) Once install is done, let the paths default and click next Step 10) Click Next. Step 11) In start Menu search for Groovy Console Groovy Hello World Example Consider we want to print a simple string "Hello World" in Java. The code to achieve this would be 
+public class Demo {
+    public static void main(String args[]) {
+        System.out.println("Hello World");
+    }
+}
+ The above code is valid in both Java and Groovy as Groovy is a superset of Java. But the advantage with Groovy is that we can do we away with class creation, public method creation, etc and achieve the same output with a single line code as follows: println "Hello World." There is no need for semicolons There is no need for parenthesis System.out.println is reduced to println Groovy Variables In Java, static binding is compulsory. Meaning the type of a variable has to be declared in advance. 
+public class Demo {
+    public static void main(String args[]) {
+        int x = 104;
+        System.out.println(x);
+        //x = "Guru99";
+    }
+}
+ In the above example type of variable (integer) is declared in advance using the keyword "int". If you were to declare a floating point number you use the keyword float. If you try to assign a String value to an int (uncomment line #5), you will get the following error 
+Demo.java:5: error: incompatible types: String cannot be converted to int
+x = "Guru99";
+ In contrast, Groovy supports Dynamic Typing. Variables are defined using the keyword "def," and the type of a variable does not need to be declared in advance. The compiler figures out the variable type at runtime and you can even the variable type. Consider the following groovy example, 
+def x = 104
+println x.getClass()
+x = "Guru99"
+println x.getClass()
+ Output 
+class java.lang.Integer
+class java.lang.String
+ In Groovy, you can create multiline strings. Just ensure that you enclosed the String in triple quotes. 
+def x = """Groovy
+at
+Guru99"""
+println x
+ Output 
+Groovy
+at
+Guru99
+ Note: You can still variable types like byte, short, int, long, etc with Groovy. But you cannot dynamically change the variable type as you have explicitly declared it. Consider the following code: 
+int x = 104
+println x
+x = "Guru99"
+ It gives the following error 
+104
+Caught: org.codehaus.groovy.runtime.typehandling.GroovyCastException: Cannot cast object 'Guru99' with class 'java.lang.String' to class 'int'
+org.codehaus.groovy.runtime.typehandling.GroovyCastException: Cannot cast object 'Guru99' with class 'java.lang.String' to class 'int'
+    at jdoodle.run(jdoodle.groovy:3)
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+Command exited with non-zero status 1
+ Groovy-Operators An operator is a symbol which tells the compiler to do certain mathematical or logical manipulations. Groovy has the following five types of operators – Arithmetic operators: Add (+), Subtract (-), Multiplication (*), Division(/) Relational operators: equal to (==), Not equal to (!=), Less than (<) Less than or equal to (<=), Greater than (>), Greater than or equal to (>=) Logical operators: And (&&), Or(||), Not(!) Bitwise operators: And(&), Or(|), (^), Xor or Exclusive-or operator Assignment operators: Negation operator (~) Groovy-Loops In Java, you would define a loop as follows 
+public class Demo {
+    public static void main(String args[]) {
+        for (int x = 0; x <= 5; x++) {
+            System.out.println(x);
+        }
+    }
+}
+ Output 
+0
+1
+2
+3
+4
+ You can achieve the same output in Groovy using upto keywords 0.upto(4) {println "$it"} You get the same output as above. $it is a closure that gives the value of the current loop. Consider the following code 2.upto(4) {println "$it"} It gives an output 
+2
+3
+4
+ You can also use the "times" keyword to get the same output 5.times{println "$it"} Consider, you want to print 0,2,4,6 with for loop in Java 
+public class Demo {
+    public static void main(String args[]) {
+        for (int x = 0; x <= 5; x=x+2) {
+            System.out.println(x);
+        }
+    }
+}
+ Output: 
+0
+2
+4
+6
+ You can use the step method for the same 0.step(7,2){println "$it"} Groovy- Decision Making Statements Deception if Statement As in Java, the if statement is executed if the condition is true. if/else Statement In if/else statement at first a condition is evaluated in the if statement. If the condition is true then executes the statements after that. It stops before the else condition and exits out of the loop. However, If the condition is false then executes the statements in the else statement block. Then it exits the loop. Nested If Statement It is used when there is a requirement to have multiple if statements. Switch Statement The nested if-else statement could become unreadable when you have multiple conditions. To make code more readable switch statement is used. Nested Switch Statement In Groovy is also possible to use nested switch statements. Groovy List List structure allows you to store a collection of data Items. In a Groovy programming language, the List holds a sequence of object references. It also shows a position in the sequence. A List literal is presented as a series of objects separated by commas and enclosed in square brackets. Example of Grrovy list: A list of Strings- ['Angular', 'Nodejs,] A list of object references - ['Groovy', 2,4 2.6] A list of integer values - [16, 17, 18, 19] An empty list- [ ] Following are list methods available in Groovy: Methods Description add() Allows you to append the new value to the end of this List. contains() Returns true if this List contains a certain value. get() Returns the element at the definite position isEmpty() Returns true value if List contains no elements minus() This command allows you to create a new List composed of the elements of the original excluding those which are specified in the collection. plus() Allows you to create a new List composed of the elements of the original together along with mentioned in the collection. pop() Removes the last item from the List remove() Removes the element at the specific position reverse() Create a new List which reverses the elements of the original List size() Allow finding some elements sort() Returns a sorted copy Consider the following example 
+def y = ["Guru99", "is", "Best", "for", "Groovy"]
+println y
+y.add("Learning")
+println(y.contains("is"))
+println(y.get(2))
+println(y.pop())
+ Output 
+[Guru99, is, Best, for, Groovy]
+true
+Best
+Learning
+ Groovy Maps A Map Groovy is a collection of Key Value Pairs Examples of Groovy maps: [Tutorial: 'Java, Tutorial: 'Groovy] – Collection of key-value pairs which has Tutorial as the key and their respective values [ : ] Represent an Empty map Here, is a list of map methods available in Groovy. Methods Description containsKey() Check that map contains this key or not? get() This command looks up the key in this Map and returns the corresponding value. If you don't find any entry in this Map, then it will return null. keySet() Allows to find a set of the keys in this Map put() Associates the specified value with the given key in this Map. If the Map earlier contained a mapping for this key. Then the old value will be replaced by the specified value. size() Returns the number of key-value mappings. values() This command returns a collection view of the values. Groovy Example: 
+def y = [fName:'Jen', lName:'Cruise', sex:'F']
+print y.get("fName") Output Jen Groovy- Closures A groovy closure is a piece of code wrapped as an object. It acts as a method or a function. Example of simple closure 
+def myClosure = {
+       println "My First Closure"	
+}
+myClosure()
+ Output: My First Closure A closure can accept parameters. The list of identifies is comma separated with an arrow (->) marking the end of the parameter list. 
+def myClosure = {
+       a,b,c->
+       y = a+b+c
+       println y
+}
+myClosure(1,2,3)
+ Output 6 A closure can return a value. 
+def myClosure = {
+       a,b,c->
+       return (a+b+c)
+}
+println(myClosure(1,2,3))
+ Output 6 There are many built-in closures like "It", "identity", etc. Closures can take other closure as parameters. Groovy Vs. Java Groovy Java In Groovy, default access specifier is public. It means a method without any specified access modifier is public and accessible outside of class and package boundaries. In Java, the default access modifier is a package, i.e., if you don't specify access modifier for fields, methods or class it becomes package-private, Getters and setters are automatically generated for class members. Java, you need to define getters and setters method for fields Groovy allows variable substitution using double quotation marks with strings. Java does not support variable substitution. Typing information is optional. Typing information is mandatory in Java. Groovy it's not required to end with a semicolon. In Java, every statement ends with a semicolon. Groovy is automatically a wrapping class called Script for every program In Java, you need the main method to make a class executable. Myths about Groovy Myth Reality We can use Groovy just for scripting. It can be used for scripting. However, you can perform many other tasks apart from it. Groovy is all about closures. "It's just functional programming language." Groovy adopts from functional programming languages like Lisp or Closure. Groovy is an ideal choice if you want do TDD This statement is true. However, it is certainly not the only reason to use Groovy. You can use Groovy only if you want to use Grails. Grails is a powerful web development framework. But Groovy offers more than that. Cons of using Groovy JVM and Groovy script start time is slow which limits OS-level scripting Groovy is not entirely accepted in other communities. It is not convenient to use Groovy without using IDE Groovy can be slower which increased the development time Groovy may need lots of memory Knowledge of Java is imperative. Groovy Tools We will discuss 3 important tools 1. groovysh: Executes code interactively. 2. groovyConsole: GUI for interactive code execution 3. groovy: Executes groovy scripts. You can use it like Perl, Python, etc. Groovysh command-line shell Helps you to execute Groovy code interactively Allows entering statements or whole scripts Groovy console Swing interface which acts as a minimal Groovy development editor. Allows you to interacts Groovy code Helps you to load and run Groovy script files Groovy It is the processor which executes Groovy programs and scripts. U It can be used to test simple Groovy expressions. Summary Groovy is an Object-oriented programming language used for Java platform It offers seamless integration with all existing Java objects and libraries Bob McWhirter & James Strachan developed groovy in 2003 List, map, range, regular expression literals are important features of Groovy Four type of operators support by Groovy are 1. Relational 2.Logical 3. Bitwise 4. Assignment Groovy performed decision making using if, if/else, Nested if, switch, Netsted switch statements List structure allows you to store a collection of Data Items A Map Groovy is a collection of Key Value Pairs In Groovy, Getters and setters are automatically generated for class members In Java, you can use provide getters and setters method for fields The biggest myth about Groovy is that it can only use for scripting which is not correct Some time Groovy can be slower which increased the development time Three Groovy Tools are: groovysh which executes code, groovy Console which is GUI for interactive code execution and groovy which executes scripts   Prev Report a Bug Next YOU MIGHT LIKE: JavaScript 90 Best JavaScript Certification Courses in 2020 Following is a curated list of Top 90 JavaScript Courses for beginners and professionals. Learning... Read more Java Tutorials String Length() Method in Java with Example What is String "Length" Method in Java? This function is used to get the length of a Java String.... Read more Java Tutorials String endsWith() Method in Java with Example What is String "endsWith" Method? The Java endsWith method is used to check whether the string is... Read more Java Tutorials Java Spring Tutorial: Features, History, MVC Framework Architecture What is the Spring framework? Spring is a easy to use open-source Java MVC framework provides... Read more Java Tutorials String compareTo() Method in Java with Example What is compareTo() method in Java? compareTo() is used for comparing two strings... Read more Java Tutorials Palindrome Program in Java: Check number is Palindrome or Not What is Palindrome Number? A Palindrome Number is a number that even when reversed is same as... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

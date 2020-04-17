@@ -1,0 +1,50 @@
+https://www.guru99.com//java-date.html
+Java Date & Time: SimpleDateFormat, Current Date & Compare Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java Date & Time: SimpleDateFormat, Current Date & Compare Details Last Updated: 25 March 2020 In this tutorial, you will learn - Display Current Date in Java SimpleDateFormat: Parse and Format Dates Compare Dates Example Let us first understand the parameters that consist of a Date. It will primarily contain - The year (in either 2 or 4 digits) The month (in either 2 digits, First 3 letters of the month or the entire word of the month). The date (it will be the actual date of the month). The day (the day at the given date – like Sun, Mon, Tue, etc.) Concerning computer systems, there are quite a lot of parameters that can be used to associate with a date. We shall see them in the later parts of this topic. Display Date in Java Now let us see how Java provide us the Date. First, we shall see how to get the current date- Java provides a Date class under the java.util package, The package provides several methods to play around with the date. You can use the Date object by invoking the constructor of Date class as follows: import java.util.Date;
+class Date_Ex1 {
+ public static void main(String args[]) {
+  // Instantiate a Date object by invoking its constructor
+  Date objDate = new Date();
+  // Display the Date & Time using toString()
+  System.out.println(objDate.toString());
+ }
+} Output: Wed Nov 29 06:36:22 UTC 2017 In above example date shown in default format, If we want to show the date and time in another format, first understand the Formatting of date. SimpleDateFormat: Parse and Format Dates You all must have learned the alphabets in your kindergarten …. Let us now learn the ABC’s of the date format. Letter Date or Time Component Examples G Era designator AD y Year 2018 M Month in year July or Jul or 07 w Week in year 27 W Week in month 2 D Day in year 189 d Day in month 10 F Day of week in month 2 E Day name in week Tuesday or Tue u Day number of week (1 = Monday, ..., 7 = Sunday) 1 a Am/pm marker PM H Hour in day (0-23) 0 k Hour in day (1-24) 24 K Hour in am/pm (0-11) 0 h Hour in am/pm (1-12) 12 m Minute in hour 30 s Second in minute 55 S Millisecond 978 z Time zone Pacific Standard Time; PST; GMT-08:00 Z Time zone -0800 X Time zone -08 or -0800 or -08:00 Don’t worry, you don’t need to remember all of these, they can be referred anytime you need to format a particular date. How to use the SimpleDateFormat? Java provides a class called a SimpleDateFormat that allows you to format and parse dates in the as per your requirements. You can use the above characters to specify the format - For example: 1) Date format required: 2012.10.23 20:20:45 PST The appropriate date format specified will be- yyyy.MM.dd HH:mm:ss zzz 2) Date format required:09:30:00 AM 23-May-2012 The appropriate date format specified will be-hh:mm:ss a dd-MMM-yyyy Tip: Be careful with the letter capitalization. If you mistake M with m, you will undesired results! Let's learn this with a code example. import java.text.SimpleDateFormat;
+import java.util.Date;
+class TestDates_Format {
+ public static void main(String args[]) {
+  Date objDate = new Date(); // Current System Date and time is assigned to objDate
+  System.out.println(objDate);
+  String strDateFormat = "hh:mm:ss a dd-MMM-yyyy"; //Date format is Specified
+  SimpleDateFormat objSDF = new SimpleDateFormat(strDateFormat); //Date format string is passed as an argument to the Date format object
+  System.out.println(objSDF.format(objDate)); //Date formatting is applied to the current date
+ }
+} Output: Wed Nov 29 06:31:41 UTC 2017
+06:31:41 AM 29-Nov-2017 Compare Dates Example The most useful method of comparing dates is by using the method – compareTo() Let us take a look at the below code snippet- import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.util.Date;
+
+class TestDates_Compare {
+ public static void main(String args[]) throws ParseException {
+
+  SimpleDateFormat objSDF = new SimpleDateFormat("dd-mm-yyyy");
+  Date dt_1 = objSDF.parse("20-08-1981");
+  Date dt_2 = objSDF.parse("12-10-2012");
+
+  System.out.println("Date1 : " + objSDF.format(dt_1));
+  System.out.println("Date2 : " + objSDF.format(dt_2));
+
+  if (dt_1.compareTo(dt_2) > 0) {
+   System.out.println("Date 1 occurs after Date 2");
+  } // compareTo method returns the value greater than 0 if this Date is after the Date argument.
+  else if (dt_1.compareTo(dt_2) < 0) {
+   System.out.println("Date 1 occurs before Date 2");
+  } // compareTo method returns the value less than 0 if this Date is before the Date argument;
+  else if (dt_1.compareTo(dt_2) == 0) {
+   System.out.println("Both are same dates");
+  } // compareTo method returns the value 0 if the argument Date is equal to the second Date;
+  else {
+   System.out.println("You seem to be a time traveller !!");
+  }
+ }
+} Output: Date1 : 20-08-1981
+Date2 : 12-10-2012
+Date 1 occurs before Date 2   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials C++ Vs JAVA: What’s the Difference? What is the C++ language? C++ is a computer programming language that contains the feature of C... Read more JavaScript TypeScript Tutorial: Types, Arrays, Enum, Classes, Interfaces What is Typescript? Typescript is a superset of JavaScript. TypeScript is pure object-oriented... Read more Java Tutorials String indexOf() Method in Java with EXAMPLE What is indexOf() Method in Java? indexOf() Method is used to get index of the first occurrence of a... Read more JavaScript Difference Between =, ==, and === in JavaScript [Examples] What is = in JavaScript? Equal to (=) is an assignment operator, which sets the variable on the... Read more Java Tutorials Top 22 Java Design Patterns Interview Questions & Answers 1) Explain what is Java Design Pattern? A design pattern is a language independent strategy for... Read more Java Tutorials Top 22 Groovy Interview Questions & Answers 1) Explain what is Groovy? Groovy is an object-oriented programming language for JVM (Java Virtual... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

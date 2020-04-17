@@ -1,0 +1,92 @@
+https://www.guru99.com//java-inheritance-polymorphism.html
+Polymorphism in Java OOPs with Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Polymorphism in Java OOPs with Example Details Last Updated: 25 March 2020 What is Polymorphism? Polymorphism is a OOPs concept where one name can have many forms. For example, you have a smartphone for communication. The communication mode you choose could be anything. It can be a call, a text message, a picture message, mail, etc. So, the goal is common that is communication, but their approach is different. This is called Polymorphism. In this tutorial, you will learn- What is Polymorphism? Java Polymorphism in OOP’s with Example Method Overriding Difference between Overloading and Overriding What is Dynamic Polymorphism? Super Keyword Difference between Static & Dynamic Polymorphism Click here if the video is not accessible Java Polymorphism in OOP’s with Example We have one parent class, ‘Account’ with function of deposit and withdraw. Account has 2 child classes The operation of deposit and withdraw is same for Saving and Checking accounts. So the inherited methods from Account class will work. Change in Software Requirement There is a change in the requirement specification, something that is so common in the software industry. You are supposed to add functionality privileged Banking Account with Overdraft Facility. For a background, overdraft is a facility where you can withdraw an amount more than available the balance in your account. So, withdraw method for privileged needs to implemented afresh. But you do not change the tested piece of code in Savings and Checking account. This is advantage of OOPS Step 1) Such that when the "withdrawn" method for saving account is called a method from parent account class is executed. Step 2) But when the "Withdraw" method for the privileged account (overdraft facility) is called withdraw method defined in the privileged class is executed. This is Polymorphism. Method Overriding Method Overriding is redefining a super class method in a sub class. Rules for Method Overriding The method signature i.e. method name, parameter list and return type have to match exactly. The overridden method can widen the accessibility but not narrow it, i.e. if it is private in the base class, the child class can make it public but not vice versa. Example 
+class Doctor{
+  public void treatPatient(){
+  // treatPatient method
+  
+}
+class Surgeon extends Doctor{
+  public void treatPatient(){
+  // treatPatient method
+  }
+}
+Class run{
+  public static void main (String args[]){
+    Doctor doctorObj = new Doctor()
+	// treatPatient method in class Doctor will be executed
+    doctorObj.treatPatient();
+   
+    Surgeon surgeonObj = new Surgeon();
+    // treatPatient  method in class Surgeon  will be executed
+    surgeonObj.treatPatient();
+  }
+}
+ Difference between Overloading and Overriding Method Overloading Method Overriding Method overloading is in the same class, where more than one method have the same name but different signatures. Method overriding is when one of the methods in the super class is redefined in the sub-class. In this case, the signature of the method remains the same. Ex: 
+void sum (int a , int b);
+void sum (int a , int b, int c);
+void sum (float a, double b);
+ Ex: 
+class X{
+  public int sum(){
+     // some code
+  }
+}
+
+class Y extends X{
+  public int sum(){
+    //overridden method
+   //signature is same
+ }
+}
+ What is Dynamic Polymorphism? Dynamic Polymorphism is the mechanism by which multiple methods can be defined with same name and signature in the superclass and subclass. The call to an overridden method are resolved at run time. Dynamic Polymorphism Example: A reference variable of the super class can refer to a sub class object 
+ Doctor obj = new Surgeon();
+ Consider the statement 
+obj.treatPatient();
+ Here the reference variable "obj" is of the parent class, but the object it is pointing to is of the child class (as shown in the diagram). obj.treatPatient() will execute treatPatient() method of the sub-class - Surgeon If a base class reference is used to call a method, the method to be invoked is decided by the JVM, depending on the object the reference is pointing to For example, even though obj is a reference to Doctor, it calls the method of Surgeon, as it points to a Surgeon object This is decided during run-time and hence termed dynamic or run-time polymorphism Super Keyword What if the treatPatient method in the Surgeon class wants to execute the functionality defined in Doctor class and then perform its own specific functionality? In this case, keyword supercan be used to access methods of the parent class from the child class. The treatPatient method in the Surgeon class could be written as: 
+treatPatient(){
+   super.treatPatient();
+     //add code specific to Surgeon
+}
+ The keyword super can be used to access any data member or methods of the super class in the sub class. Example:-To learn Inheritance, Polymorphism & super keyword Step 1) Copy the following code into an Editor 
+public class Test{
+     public static void main(String args[]){
+        X x= new X();
+       Y y = new  Y();
+       y.m2();
+      //x.m1();
+      //y.m1();
+     //x = y;// parent pointing to object of child
+     //x.m1() ;
+     //y.a=10;
+   }
+
+}
+class X{
+   private int a;
+   int b;
+      public void m1(){
+       System.out.println("This is method m1 of class X");
+     }
+}
+
+class Y extends X{
+      int c; // new instance variable of class Y
+         public void m1(){
+            // overriden method
+            System.out.println("This is method m1 of class Y");
+        }
+       public void m2(){
+           super.m1();
+           System.out.println("This is method m2 of class Y");
+      }
+} Step 2) Save, Compile & Run the code. Observe the output. Step 3) Uncomments lines # 6-9. Save, Compile & Run the code. Observe the output. Step 4) Uncomment line # 10 . Save & Compile the code. Step 5) Error = ? This is because sub-class cannot access private members of the super class.   Difference between Static & Dynamic Polymorphism Static Polymorphism Dynamic Polymorphism It relates to method overloading. It relates to method overriding. Errors, if any, are resolved at compile time. Since the code is not executed during compilation, hence the name static. Ex: 
+void sum (int a , int b);
+void sum (float a, double b);
+int sum (int a, int b); //compiler gives error.
+
+			   In case a reference variable is calling an overridden method, the method to be invoked is determined by the object, your reference variable is pointing to. This is can be only determined at runtime when code in under execution, hence the name dynamic. Ex: 
+//reference of parent pointing to child object
+ Doctor obj = new Surgeon();
+// method of child called
+obj.treatPatient();
+			     Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials Groovy Script Tutorial for Beginners What is a Groovy Script? APACHE GROOVY is an object oriented and Java syntax compatible... Read more Java Tutorials Armstrong Number Program in JAVA What is Armstrong Number ? In an Armstrong Number, the sum of power of individual digits is equal... Read more Java Tutorials Java Program to Check Prime Number What is a Prime Number? A prime number is a number that is only divisible by 1 or itself. For... Read more JavaScript JavaScript Tutorial for Beginners PDF JavaScript is an open source & most popular client-side scripting language supported by all... Read more Java Tutorials Palindrome Program in Java: Check number is Palindrome or Not What is Palindrome Number? A Palindrome Number is a number that even when reversed is same as... Read more Java Tutorials Java vs Scala: What is the Difference? What is Java? Java is a multi-platform, object-oriented, network-centric, programming language... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

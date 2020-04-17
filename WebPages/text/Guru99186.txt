@@ -1,0 +1,94 @@
+https://www.guru99.com//java-strings.html
+Java String Manipulation: Functions and Methods with EXAMPLE Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java String Manipulation: Functions and Methods with EXAMPLE Details Last Updated: 25 March 2020 What are Strings? A string in literal terms is a series of characters. Hey, did you say characters, isn’t it a primitive data type in Java. Yes, so in technical terms, the basic Java String is basically an array of characters. So my above string of “ROSE” can be represented as the following – In this tutorial, you will learn- What are Strings? Why use Strings? String Syntax Examples String Concatenation Important Java string methods Why use Strings? One of the primary functions of modern computer science, is processing human language. Similarly to how numbers are important to math, language symbols are important to meaning and decision making. Although it may not be visible to computer users, computers process language in the background as precisely and accurately as a calculator. Help dialogs provide instructions. Menus provide choices. And data displays show statuses, errors, and real-time changes to the language. As a Java programmer, one of your main tools for storing and processing language is going to be the String class. String Syntax Examples Now, let’s get to some syntax,after all, we need to write this in Java code isn’t it. String is an array of characters, represented as: 
+
+//String is an array of characters
+char[] arrSample = {'R', 'O', 'S', 'E'};
+String strSample_1 = new String (arrSample);
+ In technical terms, the String is defined as follows in the above example- 
+= new (argument);
+ Now we always cannot write our strings as arrays; hence we can define the String in Java as follows: 
+//Representation of String
+String strSample_2 = "ROSE";
+ In technical terms, the above is represented as: 
+= ;
+ The String Class Java extends the Object class. String Concatenation: Concatenation is joining of two or more strings. Have a look at the below picture- We have two strings str1 = “Rock” and str2 = “Star” If we add up these two strings, we should have a result as str3= “RockStar”. Check the below code snippet,and it explains the two methods to perform string concatenation. First is using “concat” method of String class and second is using arithmetic “+” operator. Both results in the same output 
+public class Sample_String{
+  public static void main(String[] args){
+//String Concatenation
+String str1 = "Rock";
+String str2 = "Star";
+//Method 1 : Using concat
+String str3 = str1.concat(str2);
+System.out.println(str3);
+//Method 2 : Using "+" operator
+String str4 = str1 + str2;
+System.out.println(str4);
+}
+}
+ Important Java string methods : Let’s ask the Java String class a few questions and see if it can answer them ;) String "Length" Method How will you determine the length of given String? I have provided a method called as “length”. Use it against the String you need to find the length. 
+public class Sample_String{
+  public static void main(String[] args){  //Our sample string for this tutorial
+  String str_Sample = "RockStar";
+  //Length of a String
+  System.out.println("Length of String: " + str_Sample.length());}}
+ output: 
+Length of String: 8
+ String "indexOf" Method If I know the length, how would I find which character is in which position? In short, how will I find the index of a character? You answered yourself, buddy, there is an “indexOf” method that will help you determine the location of a specific character that you specify. 
+public class Sample_String{
+  public static void main(String[] args){//Character at position
+String str_Sample = "RockStar";
+System.out.println("Character at position 5: " + str_Sample.charAt(5));
+//Index of a given character
+System.out.println("Index of character 'S': " + str_Sample.indexOf('S'));}}
+ Output: 
+Character at position 5: t
+Index of character 'S': 4
+ String "charAt" Method Similar to the above question, given the index, how do I know the character at that location? Simple one again!! Use the “charAt” method and provide the index whose character you need to find. 
+public class Sample_String{
+  public static void main(String[] args){//Character at position
+String str_Sample = "RockStar";
+System.out.println("Character at position 5: " + str_Sample.charAt(5));}}
+ Output: 
+Character at position 5: t
+ String "CompareTo" Method Do I want to check if the String that was generated by some method is equal to something that I want to verify with? How do I compare two Strings? Use the method “compareTo” and specify the String that you would like to compare. Use “compareToIgnoreCase” in case you don’t want the result to be case sensitive. The result will have the value 0 if the argument string is equal to this string; a value less than 0 if this string is lexicographically less than the string argument; and a value greater than 0 if this string is lexicographically greater than the string argument. 
+public class Sample_String{
+  public static void main(String[] args){//Compare to a String
+String str_Sample = "RockStar";
+  System.out.println("Compare To 'ROCKSTAR': " + str_Sample.compareTo("rockstar"));
+  //Compare to - Ignore case
+  System.out.println("Compare To 'ROCKSTAR' - Case Ignored: " + str_Sample.compareToIgnoreCase("ROCKSTAR"));}}
+ Output: 
+Compare To 'ROCKSTAR': -32
+Compare To 'ROCKSTAR' - Case Ignored: 0
+ String "Contain" Method I partially know what the string should have contained, how do I confirm if the String contains a sequence of characters I specify? Use the method “contains” and specify the characters you need to check. Returns true if and only if this string contains the specified sequence of char values. 
+public class Sample_String{
+  public static void main(String[] args){  //Check if String contains a sequence
+String str_Sample = "RockStar";
+  System.out.println("Contains sequence 'tar': " + str_Sample.contains("tar"));}}
+ Output: 
+Contains sequence 'tar': true
+ String "endsWith" Method How do I confirm if a String ends with a particular suffix? Again you answered it. Use the “endsWith” method and specify the suffix in the arguments. Returns true if the character sequence represented by the argument is a suffix of the character sequence represented by this object. 
+public class Sample_String{
+  public static void main(String[] args){  //Check if ends with a particular sequence
+String str_Sample = "RockStar";
+  System.out.println("EndsWith character 'r': " + str_Sample.endsWith("r"));}}
+ Output: 
+EndsWith character 'r': true
+ String "replaceAll" & "replaceFirst" Method I want to modify my String at several places and replace several parts of the String? Java String Replace, replaceAll and replaceFirst methods. You can specify the part of the String you want to replace and the replacement String in the arguments. 
+public class Sample_String{
+  public static void main(String[] args){//Replace Rock with the word Duke
+String str_Sample = "RockStar";
+System.out.println("Replace 'Rock' with 'Duke': " + str_Sample.replace("Rock", "Duke"));}}
+ Output: 
+Replace 'Rock' with 'Duke': DukeStar
+ String Java "tolowercase" & Java "touppercase" Method I want my entire String to be shown in lower case or Uppercase? Just use the “toLowercase()” or “ToUpperCase()” methods against the Strings that need to be converted. 
+public class Sample_String{
+  public static void main(String[] args){//Convert to LowerCase
+String str_Sample = "RockStar";
+System.out.println("Convert to LowerCase: " + str_Sample.toLowerCase());
+//Convert to UpperCase
+System.out.println("Convert to UpperCase: " + str_Sample.toUpperCase());}}
+ Output: 
+Convert to LowerCase: rockstar
+Convert to UpperCase: ROCKSTAR
+ Important Points to Note: String is a Final class; i.e once created the value cannot be altered. Thus String objects are called immutable. The Java Virtual Machine(JVM) creates a memory location especially for Strings called String Constant Pool. That’s why String can be initialized without ‘new’ keyword. String class falls under java.lang.String hierarchy. But there is no need to import this class. Java platform provides them automatically. String reference can be overridden but that does not delete the content; i.e., if String h1 = "hello"; h1 = "hello"+"world"; then "hello" String does not get deleted. It just loses its handle. Multiple references can be used for same String but it will occur in the same place; i.e., if String h1 = "hello"; String h2 = "hello"; String h3 = "hello"; then only one pool for String “hello” is created in the memory with 3 references-h1,h2,h3 If a number is quoted in “ ” then it becomes a string, not a number anymore. That means if String S1 ="The number is: "+ "123"+"456"; System.out.println(S1); then it will print: The number is: 123456 If the initialization is like this: String S1 = "The number is: "+(123+456); System.out.println(S1); then it will print: The number is:579 That's all to Strings!   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials String charAt() Method in Java with Example Why use string "charAt" Method? The charat method returns the character at the definite index. In this... Read more Java Tutorials String Length() Method in Java with Example What is String "Length" Method in Java? This function is used to get the length of a Java String.... Read more Java Tutorials Insertion Sort Algorithm in Java Program with Example Insertion sort is a simple sorting algorithm suited for small data sets. During each iteration,... Read more Java Tutorials How to Reverse a String in Java using Recursion In this example program, we will reverse a string entered by a user. We will create a function to... Read more Java Tutorials String contains() Method in Java with Example What is contains()method in Java? The contains() method is Java method to check if String contains... Read more JavaScript QuickSort Algorithm in JavaScript What is Quick Sort? Quick Sort algorithm follows Divide and Conquer approach. It divides elements... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

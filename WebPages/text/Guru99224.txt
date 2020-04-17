@@ -1,0 +1,40 @@
+https://www.guru99.com//prime-number-program-java.html
+Prime Number From 1 to 100 Program in Java Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Prime Number From 1 to 100 Program in Java Details Last Updated: 25 March 2020 What is a Prime Number? A prime number is a number that is only divisible by 1 or itself. For example, 11 is only divisible by 1 or itself. Other Prime numbers 2, 3, 5, 7, 11, 13, 17.... Note: 0 and 1 are not prime numbers. 2 is the only even prime number. How to display prime numbers between 1 to 100 using Java Code Program Logic: The main method contains a loop to check prime numbers one by one. The main method calls the method CheckPrime to determine whether a number is prime We need to divide an input number, say 17 from values 2 to 17 and check the remainder. If the remainder is 0 number is not prime. No number is divisible by more than half of itself. So, we need to loop through just numberToCheck/2. If the input is 17, half is 8.5, and the loop will iterate through values 2 to 8 If numberToCheck is entirely divisible by another number, we return false, and loop is broken. If numberToCheckis prime, we return true. In the main method, check isPrime is TRUE and add to primeNumbersFound String Lastly, print the results public class primeNumbersFoundber {
+
+    public static void main(String[] args) {
+
+        int i;
+        int num = 0;
+        int maxCheck = 100; // maxCheck limit till which you want to find prime numbers
+        boolean isPrime = true;
+
+        //Empty String
+        String primeNumbersFound = "";
+
+        //Start loop 1 to maxCheck
+        for (i = 1; i <= maxCheck; i++) {
+            isPrime = CheckPrime(i);
+            if (isPrime) {
+                primeNumbersFound = primeNumbersFound + i + " ";
+            }
+        }
+        System.out.println("Prime numbers from 1 to " + maxCheck + " are:");
+        // Print prime numbers from 1 to maxCheck
+        System.out.println(primeNumbersFound);
+    }
+    public static boolean CheckPrime(int numberToCheck) {
+        int remainder;
+        for (int i = 2; i <= numberToCheck / 2; i++) {
+            remainder = numberToCheck % i;
+            //if remainder is 0 than numberToCheckber is not prime and break loop. Elese continue loop
+            if (remainder == 0) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+} Output: 
+Prime numbers from 1 to 100 are:
+2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 Check our program to Find Prime Numbers from Any Input Number   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials Top 25 JMS (Java Message Service) Interview Questions & Answers 1) What is JMS? JMS means Java Messaging Service. It is the new standard for inter client... Read more Java Tutorials Bubble Sort Program in Java: Sorting Algorithm EXAMPLE What is Bubble Sort? Bubble sort is a simple algorithm which compares the first element of the... Read more Java Tutorials JAVA Programming Tutorial for Beginners PDF Java is the most popular programming language & is the language of choice for Android programming. Key... Read more JavaScript Java vs JavaScript: Most Important Differences You Must Know What is Java? Java is a multi-platform, object-oriented, and network-centric, programming... Read more Java Tutorials Armstrong Number Program in JAVA What is Armstrong Number ? In an Armstrong Number, the sum of power of individual digits is equal... Read more Java Tutorials Convert JSON to XML using Gson and JAXB: JAVA Example What is JSON? JSON is an abbreviation for Javascript Object Notation, which is a form of data that... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

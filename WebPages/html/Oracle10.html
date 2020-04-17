@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" id="oracle-cc" data-bind="setContextVariable:{name:'masterViewModel', value:$data}" dir="ltr">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+  <meta charset="utf-8"> 
+  <script type="text/javascript">
+    window.isPreviewMode = false ;
+    if (window.isPreviewMode === false ){
+      var bActiveX;
+      try {
+        new ActiveXObject('Microsoft.XMLHTTP');
+        bActiveX = true;
+      }
+      catch(e) { bActiveX = false; }
+      if (window.XMLHttpRequest || bActiveX) {
+        var xhttp = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            window.endpointRegistry = xhttp.response ;
+          }
+        };
+        xhttp.open("GET", "/ccstoreui/v1/registry", true);
+        xhttp.responseType = 'json';
+        xhttp.setRequestHeader("X-CCProfileType", "storefrontUI");
+        xhttp.send();
+      }
+    }
+  </script> 
+  <link rel="icon" href="/file/v3560214362929593679/general/favicon.ico"> 
+  <style id="antiClickjack">body{display:none !important;}</style> 
+  <script type="text/javascript">
+    if (self === top) {
+      var antiClickjack = document.getElementById("antiClickjack");
+      antiClickjack.parentNode.removeChild(antiClickjack);
+    } else {
+      top.location = self.location;
+    }
+  </script> 
+  <script type="text/javascript">
+    window.urlLocale = '';
+  </script> 
+  <script type="text/javascript">
+    window.siteBaseURLPath = '/';
+    window.applicationContextPath =  '';
+    window.siteId = 'siteUS';
+    window.siteIdOnURL = '';
+    window.clientConfigData = {
+                                'loadOjDependentBindings': 'true' ,
+                               
+                                'delayBeforeLoadingOutOfFocusImages': '-1' ,
+                               
+                                'includeOrderDetailsInShippingMethodsPayload': 'false' ,
+                               
+                                'loadImagesLazily': 'false' ,
+                               
+                                'skipLoadingProductTypes': 'false' ,
+                               
+                                'prioritizedLoading': 'false' ,
+                               
+                                'useEnhancedSearch': 'false' 
+                                };
+  </script> 
+  <script type="text/javascript">
+    window.externalServiceData = { social: { scheme: 'https', host: 'ccsocial.oracleoutsourcing.com', port: '443' } };
+  </script> 
+  <script type="text/javascript">
+    window.visitorId = '';
+    window.visitId = '';
+  </script> 
+  <title data-bind="text: $data.title"></title> 
+  <!-- ko noIndexMeta: noindex() -->
+  <!-- /ko --> 
+  <!-- ko if: $data.description --> 
+  <meta name="description" data-bind="attr: { content: $data.description }" content=""> 
+  <!-- /ko --> 
+  <!-- ko if: ((typeof($data.keywords) === "function") && ($data.keywords() && $data.keywords().length > 0)) --> 
+  <meta name="keywords" data-bind="attr: { content: $data.keywords }" content=""> 
+  <!-- /ko --> 
+  <!-- ko foreach: $data.metaTags --> 
+  <meta data-bind="attr: $data"> 
+  <!-- /ko --> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="/css/style.css?bust=20.1.8" rel="stylesheet" type="text/css"> 
+  <link href="https://education.oracle.com/file/v7714613729349347143/css/base.css?occsite=siteUS" rel="stylesheet" type="text/css">
+  <link href="https://education.oracle.com/file/v8481821380590675609/css/common.css?occsite=siteUS" rel="stylesheet" type="text/css"> 
+  <!--[if lte IE 9]>
+    <link href="/css/storefront-ie.css?bust=20.1.8" rel="stylesheet" type="text/css"/>
+
+    <![endif]--> 
+  <link href="https://education.oracle.com" rel="canonical"> 
+  <!-- ko if: $data.prevPageNo --> 
+  <link rel="prev" data-bind="attr: { href: $data.canonicalRoute() + $data.prevPageNo() }"> 
+  <!-- /ko --> 
+  <!-- ko if: $data.nextPageNo --> 
+  <link rel="next" data-bind="attr: { href: $data.canonicalRoute() + $data.nextPageNo() }"> 
+  <!-- /ko --> 
+  <!-- ko foreach: $data.alternates --> 
+  <link rel="alternate" data-bind="attr: { href: $data.href + $parent.currPageNo(), hreflang: $parent.formatHreflang($data.hrefLang) }"> 
+  <!-- /ko --> 
+  <!-- /ko --> 
+  <script type="text/javascript">
+      function getSamlResponse() {
+        return "";
+      }
+  </script> 
+  <script type="text/javascript">
+      function getAgentAuthToken() {
+        return "";
+     }
+  </script> 
+  <script type="text/javascript">
+      function getAgentRedirectUrl() {
+        return "";
+     }
+     function getAgentOrganizationIdValue() {
+             return "";
+     }
+     function getAgentPriceListGroupValue() {
+       return "";
+     }
+  </script> 
+  <script type="text/javascript">
+        function getRelayState() {
+          return "";
+        }
+  </script> 
+  <script type="text/javascript">
+      function getOAuthToken() {
+        return "";
+     }
+      function getAdditionalFormData() {
+        var additionalFormDataJson = {
+          
+        };
+        return additionalFormDataJson;
+     }
+  </script> 
+  <script>(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"true","rua.cpush":"true","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"5ef83ba52bf7a0","rua.cook":"false","rua.ims":"false","rua.ufprl":"false","rua.cfprl":"false"}]);</script> 
+  <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="DDAY4-XG3N5-NGRWU-X8743-W4T77",function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,o,_,r=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);r.src="javascript:void(0)",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="width:0;height:0;border:0;display:none;",_=document.getElementsByTagName("script")[0],_.parentNode.insertBefore(r,_);try{o=r.contentWindow.document}catch(O){i=document.domain,r.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",o=r.contentWindow.document}o.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"DDAY4-XG3N5-NGRWU-X8743-W4T77",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},o.write("<bo"+'dy onload="document._l();">'),o.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e="true"=="true"?1:0,t="",n="q4agmkyxbft6oxu2f47q-f-2742c1ffa-clientnsv4-s.akamaihd.net",i={"ak.v":"27","ak.cp":"172285","ak.ai":parseInt("165113",10),"ak.ol":"0","ak.cr":28,"ak.ipv":4,"ak.proto":"","ak.rid":"2418b36e","ak.r":11597,"ak.a2":e,"ak.m":"dscx","ak.n":"essl","ak.bpcip":"135.0.102.0","ak.cport":61715,"ak.gh":"72.246.43.207","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.csrc":"-","ak.acc":"fast","ak.t":"1587162943","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==gIHA4miNjs2WIO0cQorvEyq1qVXzIq4IGtUQ+BBFBwqwkBxjCX7NyvshFNo3b9CPHdLhX6eiZpkVD1zXK6MOlDvu65IxxA1VYRMAHdrlsLTDiWkTXUQcg1hLsh6+DJmPJkPBbmdRSVRVt0Es4fJQyMb1OkVZRKGcxbdaHypN4e8/8Xo+PliWlCBGKigTAT4b1KDRLdZVNW9kxNIiJV2bVtmNO9HOb6eKldyfnKshsO4WpG5F3az/0qvq/Q/FLY/f94kdd+sAAy+zZOt2aYuuMhvVTUih8kneXKpQBPX//dEgoo7448LWGskbWpPVwUAG9+ZXWs7Tuc6F9t08tkmKHyFS4siYpu8JATDV0c3po1ym7cilYs6bcttEHqgJa+tmhl37KjQikQItNewFhuJ1vIca/+Im8xEC8FVT6XmAX0E=","ak.pv":"57"};if(""!==t)i["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script>
+ </head> 
+ <body>
+  <noscript> 
+  </noscript>  
+  <!-- ko agentBar: isObo() -->
+  <!-- /ko --> 
+  <div id="alert-page-change" class="sr-only" role="alert" aria-atomic="true" aria-live="polite" data-bind="text: pageChangeMessage"></div> 
+  <div id="alert-modal-change" class="sr-only" role="alert" aria-atomic="true" aria-live="polite"></div> 
+  <div id="page" data-bind="css:{'container': containPage}"> 
+   <header id="headerBar" class="page-row"> 
+    <div data-bind="css:{'container': containHeader}"> 
+     <!-- ko foreach: headerRows --> 
+     <div class="row"> 
+      <div data-bind="template: { name: 'region-template', foreach: regions }" class="redBox"></div> 
+     </div> 
+     <!-- /ko --> 
+    </div> 
+   </header> 
+   <main class="page-row page-row-expanded"> 
+    <div id="main" data-bind="css:{'container': containMain}"> 
+     <!-- ko foreach: bodyRows --> 
+     <div class="row"> 
+      <div data-bind="template: { name: 'region-template', foreach: regions }" class="redBox"></div> 
+     </div> 
+     <!-- /ko --> 
+    </div> 
+    <div id="loadingModal" class="hide loadingIndicator"></div> 
+   </main> 
+   <footer id="footerBar" class="page-row"> 
+    <div data-bind="css:{'container': containFooter}"> 
+     <!-- ko foreach: footerRows --> 
+     <div class="row"> 
+      <div data-bind="template: { name: 'region-template', foreach: regions }" class="redBox"></div> 
+     </div> 
+     <!-- /ko --> 
+    </div> 
+   </footer> 
+  </div> 
+  <script type="text/html" id="region-template">
+  <!-- ko if: $data.hasOwnProperty('structure') && $data.structure() == 101 -->
+  <div  data-bind="css: widthClass, attr: {id: 'region-'+name()}">
+    <div data-bind="template: { name: 'stack-template' }"></div>
+  </div>
+  <!-- /ko -->
+  <!-- ko ifnot: $data.hasOwnProperty('structure') && $data.structure() == 101 -->
+  <!-- ko if: $data.widgets() && $data.widgets().length && !$data.globalWidgetsOnly() -->
+  <div  data-bind="css: widthClass, attr: {id: 'region-'+name()}">
+    <!-- ko foreach: $data.widgets  -->
+    <!-- ko ifnot: global  -->
+    <!-- ko if: initialized  -->
+    <!-- ko if: $data.elementsSrc -->
+    <!-- ko addTemplate: elementsSrc() --><!-- /ko -->
+    <!-- /ko -->
+    <!-- ko if: isPreview -->
+    <div class="sf-display-error">
+      <span class="sf-error-title" data-bind="text: $root.displayErrorMessage"></span>:
+      <span class="sf-error-msg"></span>
+    </div>
+    <!-- /ko -->
+    <!-- ko ifnot: $data.templateSrc -->
+    <!-- ko if: templateUrl() -->
+    <div data-bind='template: {name: templateUrl(), templateUrl: ""}, attr: {id: typeId()+"-"+id()}, visible:($masterViewModel.storeConfiguration.enablePrioritizedLoading) ? (occPrioritizedDisplay ? occPrioritizedDisplay : true):true' ></div>
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- ko if: $data.templateSrc -->
+    <div data-bind='template: {name: templateUrl(),templateSrc: templateSrc()}, attr: {id: typeId()+"-"+id()}, visible:($masterViewModel.storeConfiguration.enablePrioritizedLoading) ? (occPrioritizedDisplay ? occPrioritizedDisplay : true):true' ></div>
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- /ko -->
+  </div>
+  <!-- /ko -->
+  <!-- /ko -->
+</script> 
+  <script type="text/html" id="stack-template">
+  <!-- ko if: $masterViewModel.isPreview -->
+  <div class="sf-display-error">
+    <span class="sf-error-title" data-bind="text: $root.displayErrorMessage"></span>:
+    <span class="sf-error-msg"></span>
+  </div>
+  <!-- /ko -->
+  <!-- ko ifnot: templateSrc -->
+  <!-- ko if: templatePath() -->
+  <div data-bind='template: {name: templatePath(), templateUrl: ""}, attr: {id: stackType()+"-"+id()}'
+       class="stack-template "></div>
+  <!-- /ko -->
+  <!-- /ko -->
+  <!-- ko if: templateSrc -->
+  <div data-bind='template: {name: name(), templateSrc: templateSrc()}, attr: {id: stackType()+"-"+id()}'
+       class="stack-template "></div>
+  <!-- /ko -->
+</script> 
+  <!-- this template is loaded on site load and is available then onwards even if internet connection has some issue --> 
+  <script type="text/html" id="notificationsNetworkError">
+  <span data-bind="text: networkErrorMessage"></span>
+  <u><a data-bind="text: networkErrorReloadText" href="javascript:location.reload(true);"></a></u>
+</script> 
+  <script type="text/javascript">
+    window.storeLibsPath= 'https://education.oracle.com/file/v8858209678978923212/storeJS/20.1.8/store-libs.js';
+    window.ccKoOjExtensionsPath= 'https://education.oracle.com/file/v2688663483985954310/storeJS/20.1.8/cc-ko-oj-extensions.js';
+  </script> 
+  <script type="text/javascript">var require = {
+ "config": {
+  "ccNavState": {
+   "referrer": "/",
+   "statusCode": "200"
+  },
+  "ccResourceLoader": {"jsUrls": [
+   "/file/v7724728514892235779/global/OUEnablePrioritizedLoading.min.js?bust=LTc3MjQ3Mjg1MTQ4OTIyMzU3Nzk=",
+   "/file/v1101084278297462575/global/cart.overridden.sharedviewmodel.min.js?bust=MTEwMTA4NDI3ODI5NzQ2MjU3NQ=="
+  ]},
+  "pageLayout/css-loader": {"optimizingCSS": true}
+ },
+ "urlArgs": "bust=20.1.8",
+ "waitSeconds": 45
+};</script>
+  <script src="https://education.oracle.com/file/v6024536450818749285/storeJS/20.1.8/require.js?bust=20.1.8"></script> 
+  <script src="https://education.oracle.com/file/v7065714977442362843/storeJS/20.1.8/main.js?bust=20.1.8"></script> 
+  <script src="https://education.oracle.com/file/v8858209678978923212/storeJS/20.1.8/store-libs.js?bust=20.1.8"></script> 
+  <script src="https://education.oracle.com/file/v2688663483985954310/storeJS/20.1.8/cc-ko-oj-extensions.js?bust=20.1.8"></script>   
+ </body>
+</html>

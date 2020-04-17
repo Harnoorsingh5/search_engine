@@ -1,0 +1,66 @@
+https://www.guru99.com//buffered-reader-in-java.html
+How to read file in Java: BufferedReader Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog How to read file in Java: BufferedReader Example Details Last Updated: 11 April 2020 How to read a file in Java? Java provides several mechanisms to read from File. The most useful package that is provided for this is the java.io.Reader.This class contains the Class BufferedReader under package java.io.BufferedReader What is BufferedReader in Java? BufferedReader is a Java class to reads the text from an Input stream (like a file) by buffering characters that seamlessly reads characters, arrays or lines. In general, each read request made of a Reader causes a corresponding read request to be made of the underlying character or byte stream. It is therefore advisable to wrap a BufferedReader around any Reader whose read() operations may be costly, such as java FileReaders and InputStreamReaders. A typical usage would involve passing the file path to the BufferedReader as follows: objReader = new BufferedReader(new FileReader("D:\DukesDiary.txt"));
+//Assuming you have a text file in D drive
+ This basically loads your file in the objReader.Now, you will need to iterate through the contents of the file and print it. The while loop in the below code will read the file until it has reached the end of file while ((strCurrentLine = objReader.readLine()) != null) {
+    System.out.println(strCurrentLine);
+}
+ strCurrentLine reads the current line and objReader.readLine() returns a string. Hence, the loop will iterate until it’s not null. BufferedReader Example: Below code shows the complete implementation. 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileExample {
+
+ public static void main(String[] args) {
+  BufferedReader objReader = null;
+  try {
+   String strCurrentLine;
+
+   objReader = new BufferedReader(new FileReader("D:\\DukesDiary.txt"));
+
+   while ((strCurrentLine = objReader.readLine()) != null) {
+
+    System.out.println(strCurrentLine);
+   }
+
+  } catch (IOException e) {
+
+   e.printStackTrace();
+
+  } finally {
+
+   try {
+    if (objReader != null)
+     objReader.close();
+   } catch (IOException ex) {
+    ex.printStackTrace();
+   }
+  }
+ }
+}
+
+ Note: The above code has some very important handlings especially in the finally block of the code. This code will ensure that the memory management is done efficiently and the objReader.close() method is called that releases the memory. BufferedReader JDK7 Example: 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadFileExample_jdk7 {
+
+ private static final String FILENAME = "D:\\DukesDiary.txt";
+
+ public static void main(String[] args) {
+
+  try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
+
+   String strCurrentLine;
+
+   while ((strCurrentLine = br.readLine()) != null) {
+    System.out.println(strCurrentLine);
+   }
+
+  } catch (IOException e) {
+   e.printStackTrace();
+  }
+ }
+}
+   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials String indexOf() Method in Java with EXAMPLE What is indexOf() Method in Java? indexOf() Method is used to get index of the first occurrence of a... Read more JavaScript JavaScript Tutorial for Beginners PDF JavaScript is an open source & most popular client-side scripting language supported by all... Read more JavaScript QuickSort Algorithm in JavaScript What is Quick Sort? Quick Sort algorithm follows Divide and Conquer approach. It divides elements... Read more Java Tutorials String charAt() Method in Java with Example Why use string "charAt" Method? The charat method returns the character at the definite index. In this... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more Java Tutorials Insertion Sort Algorithm in Java Program with Example Insertion sort is a simple sorting algorithm suited for small data sets. During each iteration,... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

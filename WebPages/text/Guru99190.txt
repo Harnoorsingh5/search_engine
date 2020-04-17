@@ -1,0 +1,45 @@
+https://www.guru99.com//string-compareto-method-java.html
+String compareTo() Method in Java with Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog String compareTo() Method in Java with Example Details Last Updated: 13 April 2020 What is compareTo() method in Java? compareTo() is used for comparing two strings lexicographically. Each character of both strings are converted into a Unicode value. However, if both the strings are equal, then this method returns 0 else it only result either negative or positive value. compareTo is defined in interface java.lang.Comparable Syntax : public int compareTo(String str) Parameter input : str – This method only accepts only one input String data type. Method Returns: This Java method returns an int datatype which is based on the lexicographical comparison between two strings. returns < 0 then the String calling the method is lexicographically first returns == 0 then the two strings are lexicographically equivalent returns > 0 then the parameter passed to the compareTo method is lexicographically first. Let's understand with an example: Example 1: 
+public class Sample_String {
+    public static void main(String[] args) {
+
+        String str_Sample = "a";
+        System.out.println("Compare To 'a' b is : " + str_Sample.compareTo("b"));
+        str_Sample = "b";
+        System.out.println("Compare To 'b' a is : " + str_Sample.compareTo("a"));
+        str_Sample = "b";
+        System.out.println("Compare To 'b' b is : " + str_Sample.compareTo("b"));
+    }
+
+}
+ Output Compare To 'a' b is : -1 Compare To 'b' a is : 1 Compare To 'b' b is : 0 Here, Character a comes before b alphabetically. Hence output is -1 Character b comes after a alphabetically. Hence output is 1 Character b are equivalent, hence output is 0. You can use method Use "compareToIgnoreCase" in case you don't want the result to be case sensitive. Example 2: 
+public class Sample_String {
+    public static void main(String[] args) {
+        //Compare to a String
+        String str_Sample = "RockStar";
+        System.out.println("Compare To 'ROCKSTAR': " + str_Sample.compareTo("rockstar"));
+        //Compare to - Ignore case
+        System.out.println("Compare To 'ROCKSTAR' - Case Ignored: " + str_Sample.compareToIgnoreCase("ROCKSTAR"));
+    }
+}
+ Output Compare To 'ROCKSTAR': -32 Compare To 'ROCKSTAR' - Case Ignored: 0 When to use CompareTo() method? compareTo() method is used to perform natural sorting on string. Natural sorting means the sort order which applies on the object, e.g., lexical order for String, numeric order for Sorting integers, etc. Lexical order is nothing but alphabetically order. compareTo method does a sequential comparison of letters in the string that have the same position. In this method, if the first string is always lexicographically higher than second string, it returns a positive number. if a1 > a2, it returns negative number if a1 < a2, it returns positive number if a1 == a2, it returns 0 Example 3: 
+public class Compare {
+    public static void main(String[] args) {
+        String s1 = "Guru1";
+        String s2 = "Guru2";
+        System.out.println("String 1: " + s1);
+        System.out.println("String 2: " + s2);
+
+        // Compare the two strings.  
+        int S = s1.compareTo(s2);
+
+        // Show the results of the comparison.  
+        if (S < 0) { System.out.println("\"" + s1 + "\"" + " is lexicographically higher than " + "\"" + s2 + "\"");
+        } else if (S == 0) {
+            System.out.println("\"" + s1 + "\"" + " is lexicographically  equal to " + "\"" + s2 + "\"");
+        } else if (S > 0) {
+            System.out.println("\"" + s1 + "\"" + " is lexicographically less than " + "\"" + s2 + "\"");
+        }
+    }
+}
+ Output: String 1: Guru1 String 2: Guru2 "Guru1" is lexicographically higher than "Guru2"   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials C++ Vs JAVA: What’s the Difference? What is the C++ language? C++ is a computer programming language that contains the feature of C... Read more JavaScript JavaScript Tutorial for Beginners PDF JavaScript is an open source & most popular client-side scripting language supported by all... Read more JavaScript Java vs JavaScript: Most Important Differences You Must Know What is Java? Java is a multi-platform, object-oriented, and network-centric, programming... Read more Java Tutorials Java String toLowercase() and toUpperCase() Methods 1. tolowercase() method This Java string method converts every character of the particular string... Read more Java Tutorials Insertion Sort Algorithm in Java Program with Example Insertion sort is a simple sorting algorithm suited for small data sets. During each iteration,... Read more Java Tutorials Java vs Scala: What is the Difference? What is Java? Java is a multi-platform, object-oriented, network-centric, programming language... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

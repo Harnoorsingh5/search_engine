@@ -1,0 +1,81 @@
+https://www.guru99.com//bubble-sort-java.html
+Bubble Sort Program in Java: Sorting Algorithm EXAMPLE Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Bubble Sort Program in Java: Sorting Algorithm EXAMPLE Details Last Updated: 25 March 2020 What is Bubble Sort? Bubble sort is a simple algorithm which compares the first element of the array to the next one. If the current element of the array is numerically greater than the next one, the elements are swapped. Likewise, the algorithm will traverse the entire element of the array. In this tutorial, we will create a JAVA program to implement Bubble Sort. Check the output of the code that will help you understand the program logic package com.guru99;
+ 
+public class BubbleSort {
+ 
+	public static void main(String[] args)
+	{  
+		int arr[] ={860,8,200,9};  
+ 
+		System.out.println("---Array BEFORE Bubble Sort---"); 
+		
+	    printArray(arr);
+ 
+		bubbleSort(arr);//sorting array elements using bubble sort  
+ 
+		System.out.println("---Array AFTER Bubble Sort---");  
+		
+		printArray(arr); 
+ 
+	}  
+ 	static void bubbleSort(int[] array)
+	{  
+		int n = array.length;  
+		int temp = 0;  
+		for(int i=0; i < n; i++) // Looping through the array length
+		{  System.out.println("Sort Pass Number "+(i+1)); 
+			for(int j=1; j < (n-i); j++)
+			{  
+			    System.out.println("Comparing "+ array[j-1]+ " and " + array[j]);    
+				if(array[j-1] > array[j])
+				{   
+				    
+					//swap elements  
+					temp = array[j-1];  
+					array[j-1] = array[j];  
+					array[j] = temp;  
+				    System.out.println(array[j]  + " is greater than " + array[j-1]);
+				    System.out.println("Swapping Elements: New Array After Swap");
+					printArray(array);
+				}  
+ 
+			}  
+		}  
+ 
+	} 
+	
+	static void printArray(int[] array){
+	    
+	    for(int i=0; i < array.length; i++)
+		{  
+			System.out.print(array[i] + " ");  
+		} 
+	    System.out.println();
+	    
+	}
+} Output: 
+860 8 200 9 
+Sort Pass Number 1
+Comparing 860 and 8
+860 is greater than 8
+Swapping Elements: New Array After Swap
+8 860 200 9 
+Comparing 860 and 200
+860 is greater than 200
+Swapping Elements: New Array After Swap
+8 200 860 9 
+Comparing 860 and 9
+860 is greater than 9
+Swapping Elements: New Array After Swap
+8 200 9 860 
+Sort Pass Number 2
+Comparing 8 and 200
+Comparing 200 and 9
+200 is greater than 9
+Swapping Elements: New Array After Swap
+8 9 200 860 
+Sort Pass Number 3
+Comparing 8 and 9
+Sort Pass Number 4
+---Array AFTER Bubble Sort---
+8 9 200 860   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials Java Spring Tutorial: Features, History, MVC Framework Architecture What is the Spring framework? Spring is a easy to use open-source Java MVC framework provides... Read more Java Tutorials Selection Sorting in Java Program with Example How does Selection Sort work? Selection Sort implements a simple sorting algorithm as follows:... Read more Java Tutorials Apache ANT Tutorial: Installation, Project Structure, Build Example What is a Build Tool? A build tool is a programming tool which is used to build a new version of a... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more Java Tutorials Palindrome Program in Java: Check number is Palindrome or Not What is Palindrome Number? A Palindrome Number is a number that even when reversed is same as... Read more Java Tutorials String charAt() Method in Java with Example Why use string "charAt" Method? The charat method returns the character at the definite index. In this... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

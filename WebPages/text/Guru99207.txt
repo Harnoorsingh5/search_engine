@@ -1,0 +1,106 @@
+https://www.guru99.com//java-constructors.html
+Constructor in Java with EXAMPLE Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Constructor in Java with EXAMPLE Details Last Updated: 13 April 2020 What is Constructor in Java? CONSTRUCTOR is a special method that is used to initialize a newly created object and is called just after the memory is allocated for the object. It can be used to initialize the objects to desired values or default values at the time of object creation. It is not mandatory for the coder to write a constructor for a class. If no user-defined constructor is provided for a class, compiler initializes member variables to its default values. numeric data types are set to 0 char data types are set to null character(‘\0’) reference variables are set to null In this tutorial, you will learn- Rules for creating a Constructor Constructor Overloading Constructor Chaining Rules for creating a Java Constructor It has the same name as the class It should not return a value not even void Example 1: Create your First Constructor Java Step 1) Type following code in your editor. class Demo{
+      int  value1;
+      int  value2;
+      Demo(){
+         value1 = 10;
+         value2 = 20;
+         System.out.println("Inside Constructor");
+     }
+ 
+     public void display(){
+        System.out.println("Value1 === "+value1);
+        System.out.println("Value2 === "+value2);
+    }
+ 
+   public static void main(String args[]){
+       Demo d1 = new Demo();
+      d1.display();
+  }
+} Step 2) Save , Run & Compile the code. Observe the output. Output: 
+Inside Constructor
+Value1 === 10
+Value2 === 20
+ Constructor Overloading Constructor overloading is a technique in Java in which a class can have any number of constructors that differ in parameter list. The compiler differentiates these constructors by taking into account the number of parameters in the list and their type. Examples of valid  constructors for class Account are Account(int a);
+Account (int a,int b);
+Account (String a,int b);
+ Example 2: To understand Constructor Overloading Step 1) Type the code in the editor. class Demo{
+      int  value1;
+      int  value2;
+      /*Demo(){
+       value1 = 10;
+       value2 = 20;
+       System.out.println("Inside 1st Constructor");
+     }*/
+     Demo(int a){
+      value1 = a;
+      System.out.println("Inside 2nd Constructor");
+    }
+    Demo(int a,int b){
+    value1 = a;
+    value2 = b;
+    System.out.println("Inside 3rd Constructor");
+   }
+   public void display(){
+      System.out.println("Value1 === "+value1);
+      System.out.println("Value2 === "+value2);
+  }
+  public static void main(String args[]){
+    Demo d1 = new Demo();
+    Demo d2 = new Demo(30);
+    Demo d3 = new Demo(30,40);
+    d1.display();
+    d2.display();
+    d3.display();
+ }
+} Step 2) Save, Compile & Run the Code. Step 3) Error = ?. Try and debug the error before proceeding to next step. Step 4) Every class has a default Constructor. Default Constructor for class Demo is Demo(). In case you do not provide this constructor the compiler creates it for you and initializes the variables to default values. You may choose to override this default constructor and initialize variables to your desired values as shown in Example 1. But if you specify a parametrized constructor like Demo(int a), and want to use the default constructor Demo(), it is mandatory for you to specify it. In other words, in case your Constructor is overridden, and you want to use the default constructor, its need to be specified. Step 5) Uncomment line # 4-8. Save, Compile & Run the code. Constructor Chaining Consider a scenario where a base class is extended by a child. Whenever an object of the child class is created, the constructor of the parent class is invoked first. This is called Constructor chaining. Example 3: To understand constructor chaining Step 1) Copy the following code into the editor. class Demo{
+   int  value1;
+   int  value2;
+    Demo(){
+      value1 = 1;
+      value2 = 2;
+      System.out.println("Inside 1st Parent Constructor");
+   }
+   Demo(int a){
+      value1 = a;
+      System.out.println("Inside 2nd Parent Constructor");
+   }
+  public void display(){
+     System.out.println("Value1 === "+value1);
+     System.out.println("Value2 === "+value2);
+  }
+  public static void main(String args[]){
+     DemoChild d1 = new DemoChild();
+     d1.display();
+  }
+}
+class DemoChild extends Demo{
+    int value3;
+    int value4;
+    DemoChild(){
+    //super(5);
+     value3 = 3;
+     value4 = 4;
+    System.out.println("Inside the Constructor of Child");
+    }
+    public void display(){
+      System.out.println("Value1 === "+value1);
+      System.out.println("Value2 === "+value2);
+      System.out.println("Value1 === "+value3);
+      System.out.println("Value2 === "+value4);
+   }
+} Step 2) Run the Code. Owing to constructor chaining, when the object of child class DemoChild is created, constructor Demo() of the parent class is invoked first and later constructor DemoChild() of the child is created. Expected Output  =   Inside 1st Parent Constructor
+Inside the Constructor of Child
+Value1 === 1
+Value2 === 2
+Value1 === 3
+Value2 === 4
+ Step 3) You may observe the constructor of the parent class Demo is overridden. What if you want to call the overridden constructor Demo(int a) instead of the default constructor Demo() when your child object is created? In such cases, you can use the keyword "super" to call overridden constructors of the parent class. Syntax:- super();
+--or--
+super(parameter list);
+ Example: If your constructor is like Demo(String Name,int a) you will specify super("Java",5) If used, the keyword super needs to be the first line of code in the constructor of the child class. Step 4) Uncomment Line # 26 and run the code. Observe the Output. Output: Inside 2nd Parent Constructor
+Inside the Constructor of Child
+Value1 === 5
+Value2 === 0
+Value1 === 3
+Value2 === 4   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials C++ Vs JAVA: What’s the Difference? What is the C++ language? C++ is a computer programming language that contains the feature of C... Read more Java Tutorials Palindrome Program in Java: Check number is Palindrome or Not What is Palindrome Number? A Palindrome Number is a number that even when reversed is same as... Read more JavaScript Java vs JavaScript: Most Important Differences You Must Know What is Java? Java is a multi-platform, object-oriented, and network-centric, programming... Read more Java Tutorials String compareTo() Method in Java with Example What is compareTo() method in Java? compareTo() is used for comparing two strings... Read more Java Tutorials Java vs Scala: What is the Difference? What is Java? Java is a multi-platform, object-oriented, network-centric, programming language... Read more JavaScript JavaScript Tutorial for Beginners PDF JavaScript is an open source & most popular client-side scripting language supported by all... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS

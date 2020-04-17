@@ -1,0 +1,120 @@
+https://www.guru99.com//math-java.html
+Java Math Abs() Round() Ceil() Floor() Min() Methods with Example Home Testing Back Agile Testing BugZilla Cucumber Database Testing ETL Testing Jmeter JIRA Back JUnit LoadRunner Manual Testing Mobile Testing Mantis Postman QTP Back Quality Center (ALM) RPA SAP Testing Selenium SoapUI Test Management TestLink SAP Back ABAP APO Beginner Basis BODS BI BPC CO Back CRM Crystal Reports FICO HANA HR MM QM Payroll Back PI/PO PP SD SAPUI5 Security Solution Manager Successfactors SAP Tutorials Web Back Apache Android AngularJS ASP.Net C C# C++ CodeIgniter DBMS Back Java JavaScript JSP Kotlin Linux MariaDB MS Access MYSQL Node.js Back Perl PHP PL/SQL PostgreSQL Python ReactJS Ruby & Rails Scala SQL Back SQL Server SQLite UML VB.Net VBScript Web Services WPF Must Learn! Back Accounting Algorithms Blockchain Business Analyst Build Website CCNA Cloud Computing COBOL Compiler Design Embedded Systems Back Ethical Hacking Excel Tutorials Go Programming IoT ITIL Jenkins MIS Networking Operating System Prep Back PMP Photoshop Project Management Reviews Salesforce SEO Software Engineering VBA Big Data Back AWS BigData Cassandra Cognos Data Warehousing DevOps HBase Back Hive Informatica MicroStrategy MongoDB NiFi OBIEE Pentaho Back Power BI Qlikview Tableau Talend ZooKeeper Live Projects Back Live Agile Testing Live HP ALM Live Java Project Live Mobile Testing Live Payment Gateway Live PHP Project Live Projects Hub Live Python Project Back Live Selenium Project Live Selenium 2 Live Security Testing Live Testing Project Live Testing 2 Live Telecom Live UFT/QTP Testing AI Back Artificial Intelligence Data Science Keras NLTK Back NumPy PyTorch R Programming TensorFlow Blog Java Math Abs() Round() Ceil() Floor() Min() Methods with Example Details Last Updated: 25 March 2020 Java has had several advanced usage application including working with complex calculations in physics, architecture/designing of structures, working with Maps and corresponding latitudes/longitudes, etc. In this tutorial, you will learn: Math.abs Math.round Math.ceil & Math.floor Math.min All such applications require using complex calculations/equations that are tedious to perform manually. Programmatically, such calculations would involve usage of logarithms, trigonometry, exponential equations, etc. Now, you cannot have all the log or trigonometry tables hard-coded somewhere in your application or data. The data would be enormous and complex to maintain. Java provides a very useful class for this purpose. It is the Math java class (java.lang.Math). This class provides methods for performing the operations like exponential, logarithm, roots and trigonometric equations too. Let us have a look at the methods provided by the Java Math class. The two most fundamental elements in Math are the 'e' (base of the natural logarithm) and 'pi' (ratio of the circumference of a circle to its diameter). These two constants are often required in the above calculations/operations. Hence the Math class java provides these two constants as double fields. Math.E - having a value as 2.718281828459045 Math.PI - having a value as 3.141592653589793 A) Let us have a look at the table below that shows us the Basic methods and its description Method Description Arguments abs Returns the absolute value of the argument Double, float, int, long round Returns the closed int or long (as per the argument) double or float ceil Returns the smallest integer that is greater than or equal to the argument Double floor Returns the largest integer that is less than or equal to the argument Double min Returns the smallest of the two arguments Double, float, int, long max Returns the largest of the two arguments Double, float, int, long Below is the code implementation of the above methods: Note: There is no need to explicitly import java.lang.Math as its imported implicitly. All its methods are static. Integer Variable 
+int i1 = 27;
+int i2 = -45;
+ Double(decimal) variables 
+double d1 = 84.6;
+double d2 = 0.45;
+ Math.abs 
+public class Guru99 {
+ public static void main(String args[]) {
+
+  int i1 = 27;
+  int i2 = -45;
+  double d1 = 84.6;
+  double d2 = 0.45;
+  System.out.println("Absolute value of i1: " + Math.abs(i1));
+
+  System.out.println("Absolute value of i2: " + Math.abs(i2));
+
+  System.out.println("Absolute value of d1: " + Math.abs(d1));
+
+  System.out.println("Absolute value of d2: " + Math.abs(d2));
+
+ }
+}
+ Output: Absolute value of i1: 27
+Absolute value of i2: 45
+Absolute value of d1: 84.6
+Absolute value of d2: 0.45 Math.round 
+public class Guru99 {
+ public static void main(String args[]) {
+  double d1 = 84.6;
+  double d2 = 0.45;
+  System.out.println("Round off for d1: " + Math.round(d1));
+
+  System.out.println("Round off for d2: " + Math.round(d2));
+ }
+}
+
+ Output: Round off for d1: 85
+Round off for d2: 0 Math.ceil & Math.floor 
+public class Guru99 {
+ public static void main(String args[]) {
+  double d1 = 84.6;
+  double d2 = 0.45;
+  System.out.println("Ceiling of '" + d1 + "' = " + Math.ceil(d1));
+
+  System.out.println("Floor of '" + d1 + "' = " + Math.floor(d1));
+
+  System.out.println("Ceiling of '" + d2 + "' = " + Math.ceil(d2));
+
+  System.out.println("Floor of '" + d2 + "' = " + Math.floor(d2));
+
+ }
+}
+ Output: 
+Ceiling of '84.6' = 85.0
+Floor of '84.6' = 84.0
+Ceiling of '0.45' = 1.0
+Floor of '0.45' = 0.0
+ Math.min 
+public class Guru99 {
+ public static void main(String args[]) {
+  int i1 = 27;
+  int i2 = -45;
+  double d1 = 84.6;
+  double d2 = 0.45;
+  System.out.println("Minimum out of '" + i1 + "' and '" + i2 + "' = " + Math.min(i1, i2));
+
+  System.out.println("Maximum out of '" + i1 + "' and '" + i2 + "' = " + Math.max(i1, i2));
+
+  System.out.println("Minimum out of '" + d1 + "' and '" + d2 + "' = " + Math.min(d1, d2));
+
+  System.out.println("Maximum out of '" + d1 + "' and '" + d2 + "' = " + Math.max(d1, d2));
+
+ }
+}
+ Output: Minimum out of '27' and '-45' = -45
+Maximum out of '27' and '-45' = 27
+Minimum out of '84.6' and '0.45' = 0.45
+Maximum out of '84.6' and '0.45' = 84.6 B) Let us have a look at the table below that shows us the Exponential and Logarithmic methods and its description- Method Description Arguments exp Returns the base of natural log (e) to the power of argument Double Log Returns the natural log of the argument double Pow Takes 2 arguments as input and returns the value of the first argument raised to the power of the second argument Double floor Returns the largest integer that is less than or equal to the argument Double Sqrt Returns the square root of the argument Double Below is the code implementation of the above methods: (The same variables are used as above) 
+public class Guru99 {
+ public static void main(String args[]) {
+  double d1 = 84.6;
+  double d2 = 0.45;
+  System.out.println("exp(" + d2 + ") = " + Math.exp(d2));
+
+  System.out.println("log(" + d2 + ") = " + Math.log(d2));
+
+  System.out.println("pow(5, 3) = " + Math.pow(5.0, 3.0));
+
+  System.out.println("sqrt(16) = " + Math.sqrt(16));
+
+ }
+}
+ Output: exp(0.45) = 1.568312185490169
+log(0.45) = -0.7985076962177716
+pow(5, 3) = 125.0
+sqrt(16) = 4.0
+ C) Let us have a look at the table below that shows us the Trigonometric methods and its description- Method Description Arguments Sin Returns the Sine of the specified argument Double Cos Returns the Cosine of the specified argument double Tan Returns the Tangent of the specified argument Double Atan2 Converts rectangular coordinates (x, y) to polar(r, theta) and returns theta Double toDegrees Converts the arguments to degrees Double Sqrt Returns the square root of the argument Double toRadians Converts the arguments to radians Double Default Arguments are in Radians Below is the code implementation: 
+public class Guru99 {
+ public static void main(String args[]) {
+  double angle_30 = 30.0;
+  double radian_30 = Math.toRadians(angle_30);
+
+  System.out.println("sin(30) = " + Math.sin(radian_30));
+
+  System.out.println("cos(30) = " + Math.cos(radian_30));
+
+  System.out.println("tan(30) = " + Math.tan(radian_30));
+
+  System.out.println("Theta = " + Math.atan2(4, 2));
+
+ }
+}
+ Output: 
+sin(30) = 0.49999999999999994
+cos(30) = 0.8660254037844387
+tan(30) = 0.5773502691896257
+Theta = 1.1071487177940904 Now, with the above, you can also design your own scientific calculator in java.   Prev Report a Bug Next YOU MIGHT LIKE: Java Tutorials Java vs C# - 10 Key Differences between Java and C# What is Java? Java was released by Sun Microsystem in 1995. It was developed by James Gosling. It is a... Read more Java Tutorials Java String replace(), replaceFirst() & replaceAll() Method EXAMPLE Java String has three types of Replace method replace replaceAll replaceFirst. With the help of... Read more Java Tutorials Fibonacci Series Program in Java using Loops & Recursion What is Fibonacci Series? In Fibonacci series, next number is the sum of previous two numbers. The... Read more Java Tutorials Bubble Sort Program in Java: Sorting Algorithm EXAMPLE What is Bubble Sort? Bubble sort is a simple algorithm which compares the first element of the... Read more Java Tutorials Interface vs Abstract Class in Java: What's the Difference? What is Interface? The interface is a blueprint that can be used to implement a class. The... Read more JavaScript JavaScript Unit Testing Frameworks What is JavaScript? JavaScript is a programming language which is defined as high level, dynamic and... Read more 1) Java Platform 2) Java Virtual Machine 3) How to install java 4) Download & Install Java in Linux 5) First Java Program 6) Concept of OOPs 7) Data Abstraction 8) Encapsulation 9) Java Variables 10) Class & Objects 11) Java Arrays 12) Array of Objects 13) ArrayList in Java 14) Java Strings 15) String Length() Method 16) String indexOf() Method 17) String charAt() Method 18) String compareTo() Method 19) String contains() Method 20) String endsWith() Method 21) Java String replace() 22) toLowercase() & toUpperCase() 23) Convert a Java String to Integer 24) HashMaps in Java 25) Command-line 26) This Keyword 27) Garbage Collection 28) Static Variables 29) Stack Heap 30) Inheritance 31) Polymorphism 32) Abstract Method & Class 33) Java Interface 34) Interface vs Abstract Class 35) Java Constructors 36) Java Packages 37) Exception Handling 38) User-defined 39) Throws 40) Trick with For Loop 41) Switch in Java 42) Maths with Java 43) Generate Random Number 44) Date in Java 45) Multithreading in Java 46) Java GUI – Swing 47) Split a String 48) Buffered Reader 49) Java Reflection API Tutorials 50) Check Prime Number 51) Convert JSON to XML using Gson and JAXB 52) Prime Number From 1 to 100 53) Convert Char to String 54) Fibonacci Series 55) Check Armstrong Number 56) Reverse String using Recursion 57) Check Palindrome Number 58) Bubble Sort Program 59) Insertion Sort Algorithm 60) Selection Sorting 61) Java Tools for Developers 62) Groovy Script Tutorial 63) Java Spring Tutorial 64) Apache ANT Tutorial 65) JasperReports Tutorial 66) C++ Vs JAVA 67) JDK Vs JRE Vs JVM 68) Java Vs C# 69) Java Vs Python 70) Java Vs Scala 71) Java Interview Q & A 72) Java Design Patterns Interview Q & A 73) JMS Interview Q & A 74) Groovy Interview Q & A 75) JAVA Programming PDF Java Tutorials Top Tutorials About About Us Advertise with Us Write For Us Contact Us Career Suggestion SAP Career Suggestion Tool Software Testing as a Career Selenium Testing Hacking Interesting eBook Blog Quiz SAP eBook SAP Java Python Execute online Execute Java Online Execute Javascript Execute HTML Execute Python Jmeter Informatica JIRA © Copyright - Guru99 2020         Privacy Policy  |  Affiliate Disclaimer  |  ToS
